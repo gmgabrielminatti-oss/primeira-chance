@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mega Aula Gratuita: Currículo + Entrevista — Primeira Chance</title>
+<meta name="description" content="Mega Aula gratuita pra preparar seu filho de 12 a 18 anos para o primeiro emprego. Apenas quarta-feira, 24 de junho, 20h às 20h50.">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NNZXQPTD');</script>
+<!-- End Google Tag Manager -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Pixel (Meta) e Google Analytics agora são gerenciados pelo Google Tag Manager (snippet acima). -->
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --amber: #F5A623;
+    --amber-dark: #D4880A;
+    --amber-light: #FFF3D6;
+    --navy: #0F1C2E;
+    --navy-mid: #1E3048;
+    --coral: #FF5247;
+    --cream: #FAFAF5;
+    --green: #10B981;
+    --whatsapp: #25D366;
+    --whatsapp-dark: #128C7E;
+    --gray-100: #F4F3EE;
+    --gray-200: #E8E6DF;
+    --gray-400: #9B9890;
+    --gray-700: #4A4840;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* TOP BAR */
+  .top-bar {
+    background: var(--navy);
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .top-bar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .top-mark {
+    width: 32px; height: 32px;
+    background: var(--amber);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .top-mark svg { width: 16px; height: 16px; }
+  .top-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -.02em;
+  }
+  .top-tag {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--amber);
+    background: rgba(245,166,35,.15);
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 32px 5% 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: .07;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -50px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: var(--coral);
+    opacity: .06;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(245,166,35,.12);
+    border: 1px solid rgba(245,166,35,.3);
+    color: var(--amber);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--coral);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .hero-badge-info {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+    color: rgba(255,255,255,.85);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 6vw, 48px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -.03em;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--amber); }
+  .hero-subhead {
+    font-size: 17px;
+    color: rgba(255,255,255,.7);
+    line-height: 1.55;
+    margin-bottom: 30px;
+    max-width: 560px;
+  }
+  .hero-subhead strong { color: white; font-weight: 600; }
+
+  /* COUNTDOWN */
+  .countdown-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 28px;
+  }
+  .countdown-label {
+    font-size: 11px;
+    color: var(--amber);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .countdown-item {
+    text-align: center;
+    background: rgba(245,166,35,.08);
+    border-radius: 10px;
+    padding: 12px 4px;
+  }
+  .countdown-num {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 800;
+    color: var(--amber);
+    line-height: 1;
+    letter-spacing: -.02em;
+  }
+  .countdown-lbl {
+    font-size: 10px;
+    color: rgba(255,255,255,.55);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  /* DETAILS BAR */
+  .details-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    background: rgba(255,255,255,.05);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 30px;
+  }
+  @media (min-width: 640px) {
+    .details-bar {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 14px;
+    }
+  }
+  .detail-item {
+    text-align: center;
+    padding: 10px 6px;
+    background: rgba(255,255,255,.03);
+    border-radius: 8px;
+  }
+  @media (min-width: 640px) {
+    .detail-item {
+      background: transparent;
+      padding: 4px;
+    }
+  }
+  .detail-icon { font-size: 20px; margin-bottom: 4px; }
+  .detail-val {
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+  }
+  .detail-lbl {
+    font-size: 10px;
+    color: rgba(255,255,255,.5);
+    margin-top: 3px;
+  }
+
+  /* CTA BUTTON */
+  .btn-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--whatsapp);
+    color: white;
+    padding: 18px 24px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+    width: 100%;
+    font-family: var(--font-body);
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  }
+  .btn-cta:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+  .btn-cta svg { width: 22px; height: 22px; }
+
+  .cta-trust {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+  }
+  .cta-trust strong { color: rgba(255,255,255,.7); }
+
+  /* SECTIONS */
+  .section { padding: 60px 5%; }
+  .section-inner { max-width: 720px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -.025em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .section-subhead {
+    font-size: 16px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 32px;
+  }
+
+  /* O QUE VAI APRENDER */
+  .lessons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .lesson {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all .2s;
+  }
+  .lesson:hover { box-shadow: 0 4px 16px rgba(15,28,46,.06); transform: translateY(-2px); }
+  .lesson-num {
+    width: 32px; height: 32px;
+    background: var(--amber-light);
+    color: var(--amber-dark);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .lesson-content { flex: 1; }
+  .lesson-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .lesson-desc {
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+
+  /* PARENTS - WHY NOW */
+  .why-section {
+    background: var(--navy);
+    color: white;
+  }
+  .why-section .section-title { color: white; }
+  .why-section .section-title span { color: var(--amber); }
+  .why-section .section-label { color: var(--amber); }
+  .why-section .section-subhead { color: rgba(255,255,255,.65); }
+
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .why-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    padding: 22px 20px;
+  }
+  .why-icon { font-size: 28px; margin-bottom: 12px; }
+  .why-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .why-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,.55);
+    line-height: 1.5;
+  }
+
+  /* BONUS */
+  .bonus-card {
+    background: linear-gradient(135deg, var(--amber-light) 0%, #FFFBEC 100%);
+    border-radius: 18px;
+    padding: 28px 22px;
+    border: 1px solid rgba(245,166,35,.25);
+  }
+  .bonus-flag {
+    display: inline-block;
+    background: var(--coral);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .bonus-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin-bottom: 10px;
+  }
+  .bonus-card p {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .bonus-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bonus-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .bonus-check {
+    color: var(--green);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .bonus-item strong { color: var(--navy); font-weight: 600; }
+
+  /* FORM SECTION */
+  .form-section {
+    background: var(--cream);
+    padding: 60px 5%;
+    border-top: 1px solid var(--gray-200);
+  }
+  .form-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px 22px;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 4px 24px rgba(15,28,46,.05);
+  }
+  .form-pre-launch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--coral);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .form-card h2 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+  }
+  .form-card h2 span { color: var(--amber-dark); }
+  .form-card .form-sub {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .field {
+    margin-bottom: 14px;
+  }
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  label .required { color: var(--coral); }
+  input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--navy);
+    background: white;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus {
+    outline: none;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(245,166,35,.15);
+  }
+  input.warn {
+    border-color: var(--coral);
+    background: #FFF7F6;
+  }
+  .field-help {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+  .privacy-note {
+    background: var(--gray-100);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 16px 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .privacy-note span { font-size: 18px; flex-shrink: 0; }
+  .privacy-note p {
+    font-size: 11.5px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .faq-item {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+  }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    gap: 12px;
+  }
+  .faq-icon {
+    font-size: 18px;
+    color: var(--gray-400);
+    transition: transform .2s;
+    flex-shrink: 0;
+  }
+  .faq-icon.open { transform: rotate(45deg); }
+  .faq-a {
+    display: none;
+    padding: 0 18px 14px;
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    border-top: 1px solid var(--gray-100);
+    padding-top: 12px;
+  }
+  .faq-a.open { display: block; }
+
+  /* FOOTER CTA */
+  .footer-cta {
+    background: var(--amber);
+    padding: 50px 5%;
+    text-align: center;
+  }
+  .footer-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+  }
+  .footer-cta p {
+    font-size: 15px;
+    color: rgba(15,28,46,.7);
+    margin-bottom: 24px;
+  }
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: var(--amber);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 16px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all .2s;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .btn-dark:hover {
+    background: var(--navy-mid);
+    transform: translateY(-1px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 28px 5%;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+  }
+  footer a { color: var(--amber); text-decoration: none; }
+
+  /* Animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNZXQPTD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="https://cursoprimeirachance.com.br" target="_blank" rel="noopener">
+    <div class="top-mark">
+      <svg viewBox="0 0 18 18" fill="none">
+        <path d="M2 10L7 15L16 4" stroke="#0F1C2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="top-name">Primeira Chance</span>
+  </a>
+  <span class="top-tag">🔴 Mega Aula</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <div class="hero-badge">
+        <div class="dot"></div>
+        Pré-lançamento
+      </div>
+      <div class="hero-badge hero-badge-info">👤 Pais de jovens de 12 a 18 anos</div>
+    </div>
+
+    <h1>Prepare seu filho para o <span>primeiro emprego</span> em uma única aula.</h1>
+
+    <p class="hero-subhead">Mega Aula <strong>100% gratuita</strong> de 50 minutos mostrando passo a passo como criar um currículo profissional e passar na primeira entrevista — mesmo sem nenhuma experiência. <strong>Direto pelo YouTube, sem instalar nada.</strong></p>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-card">
+      <div class="countdown-label">⏳ Acontece em</div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-days">--</div>
+          <div class="countdown-lbl">Dias</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-hours">--</div>
+          <div class="countdown-lbl">Horas</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-minutes">--</div>
+          <div class="countdown-lbl">Minutos</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-num" id="cd-seconds">--</div>
+          <div class="countdown-lbl">Segundos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details-bar">
+      <div class="detail-item">
+        <div class="detail-icon">📅</div>
+        <div class="detail-val">24 de Junho</div>
+        <div class="detail-lbl">Quarta-feira</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">🕐</div>
+        <div class="detail-val">20h às 20h50</div>
+        <div class="detail-lbl">Horário de Brasília</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">📺</div>
+        <div class="detail-val">Direto no YouTube</div>
+        <div class="detail-lbl">Sem instalar nada</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">🎁</div>
+        <div class="detail-val">Gratuito</div>
+        <div class="detail-lbl">Sem pegadinha</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a href="#inscricao" class="btn-cta" onclick="trackEvent('Lead', 'hero_cta')">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      Quero garantir minha vaga grátis
+    </a>
+
+    <p class="cta-trust">⚡ <strong>Acesso pelo WhatsApp</strong> · Sem precisar criar conta · Sem spam</p>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="section why-section">
+  <div class="section-inner fade-in">
+    <p class="section-label">Por que agora?</p>
+    <h2 class="section-title">A escola não <span>prepara</span> seu filho pra isso.</h2>
+    <p class="section-subhead">Você se lembra da sua primeira entrevista? Travou. Deu respostas que hoje você acharia bobas. Aprendeu errando. <strong style="color:white;">Seu filho não precisa passar por isso.</strong></p>
+
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-icon">😰</div>
+        <div class="why-title">Travam na primeira pergunta</div>
+        <div class="why-desc">"Me fale sobre você" derruba 90% dos jovens — não por falta de talento, mas de preparo.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📄</div>
+        <div class="why-title">Não sabem fazer um currículo</div>
+        <div class="why-desc">Foto errada, e-mail informal, "não tenho experiência" — erros que custam vagas.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⏳</div>
+        <div class="why-title">Perdem o melhor momento</div>
+        <div class="why-desc">A Lei do Jovem Aprendiz oferece milhares de vagas de 14 a 24 anos — quem chega preparado leva.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VAI APRENDER -->
+<section class="section">
+  <div class="section-inner fade-in">
+    <p class="section-label">Conteúdo da aula</p>
+    <h2 class="section-title">O que seu filho vai aprender em 50 minutos</h2>
+    <p class="section-subhead">Aula completa dividida em duas partes essenciais: <strong>currículo + entrevista</strong>. Tudo direto ao ponto, sem enrolação.</p>
+
+    <div class="lessons">
+      <div class="lesson">
+        <div class="lesson-num">1</div>
+        <div class="lesson-content">
+          <div class="lesson-title">Os 5 blocos de um currículo profissional</div>
+          <div class="lesson-desc">Mesmo sem nenhuma experiência, como organizar dados pessoais, objetivo, formação, habilidades e informações complementares.</div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">2</div>
+        <div class="lesson-content">
+          <div class="lesson-title">6 erros que eliminam o currículo na 1ª leitura</div>
+          <div class="lesson-desc">Foto errada, email informal, RG e CPF, mentiras sobre habilidades — o que NUNCA colocar.</div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">3</div>
+        <div class="lesson-content">
+          <div class="lesson-title">Preenchimento ao vivo do currículo</div>
+          <div class="lesson-desc">Vou preencher um currículo do zero na tela enquanto seu filho preenche o dele em paralelo.</div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">4</div>
+        <div class="lesson-content">
+          <div class="lesson-title">Como se preparar nos 30 minutos antes</div>
+          <div class="lesson-desc">Pesquisar a empresa, escolher a roupa, chegar no horário certo — checklist completo.</div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">5</div>
+        <div class="lesson-content">
+          <div class="lesson-title">As 6 perguntas que TODA entrevista tem</div>
+          <div class="lesson-desc">"Me fale sobre você", "Por que aqui?", "Maior defeito?", "Onde se vê em 5 anos?" — com resposta modelo pra cada uma.</div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">6</div>
+        <div class="lesson-content">
+          <div class="lesson-title">Simulação de entrevista completa</div>
+          <div class="lesson-desc">Encenação real do início ao fim: do "boa tarde" ao "obrigado". Versão errada vs versão certa.</div>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-num">7</div>
+        <div class="lesson-content">
+          <div class="lesson-title">Exercícios práticos pra seu filho fazer</div>
+          <div class="lesson-desc">2 exercícios pra fazer em casa que vão fixar tudo que foi ensinado na aula.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section class="section">
+  <div class="section-inner fade-in">
+    <div class="bonus-card">
+      <span class="bonus-flag">🎁 Bônus exclusivo</span>
+      <h3>Ferramenta gratuita de criação de currículo</h3>
+      <p>Além da Mega Aula, todos os inscritos recebem acesso à <strong>nossa ferramenta online de geração de currículo</strong> — pra seu filho criar um currículo profissional em 5 minutos, no PDF padrão A4 pronto pra imprimir.</p>
+
+      <div class="bonus-items">
+        <div class="bonus-item">
+          <span class="bonus-check">✓</span>
+          <span><strong>100% gratuito</strong> — sem precisar baixar nada</span>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-check">✓</span>
+          <span><strong>Funciona no celular</strong> — preenche e baixa no PDF</span>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-check">✓</span>
+          <span><strong>Validação inteligente</strong> — alerta de erros comuns no e-mail e dados</span>
+        </div>
+        <div class="bonus-item">
+          <span class="bonus-check">✓</span>
+          <span><strong>Pronto pra imprimir</strong> — layout profissional padronizado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="form-section" id="inscricao">
+  <div class="section-inner fade-in">
+    <div class="form-card">
+      <span class="form-pre-launch">🔥 Turma piloto · Vagas limitadas</span>
+      <h2>Garanta sua <span>vaga gratuita</span> agora</h2>
+      <p class="form-sub">Preencha os dados abaixo e receba o link da Mega Aula direto no seu WhatsApp. <strong>Sem custo, sem pegadinha.</strong></p>
+
+      <form id="leadForm" onsubmit="enviarForm(event)">
+        <div class="field">
+          <label for="nome">Seu nome <span class="required">*</span></label>
+          <input type="text" id="nome" name="nome" required placeholder="Nome do responsável (mãe, pai, etc)" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="filhoNome">Nome do filho <span class="required">*</span></label>
+          <input type="text" id="filhoNome" name="filhoNome" required placeholder="Pra personalizar a comunicação">
+        </div>
+
+        <div class="field">
+          <label for="filhoIdade">Idade do filho <span class="required">*</span></label>
+          <input type="number" id="filhoIdade" name="filhoIdade" min="10" max="20" required placeholder="Entre 10 e 20 anos">
+          <div class="field-help">Conteúdo é otimizado para 12 a 18 anos.</div>
+        </div>
+
+        <div class="field">
+          <label for="whatsapp">Seu WhatsApp <span class="required">*</span></label>
+          <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(00) 90000-0000" autocomplete="tel">
+          <div class="field-help">Vou mandar o link da aula + a ferramenta de currículo aqui.</div>
+        </div>
+
+        <div class="privacy-note">
+          <span>🔒</span>
+          <p>Seus dados são protegidos. Não compartilhamos com ninguém. Você pode cancelar o recebimento de mensagens a qualquer momento.</p>
+        </div>
+
+        <button type="submit" class="btn-cta" id="submitBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          Garantir minha vaga gratuita
+        </button>
+
+        <p style="text-align: center; margin-top: 12px; font-size: 12px; color: var(--gray-400);">
+          Ao se inscrever, você recebe o aviso e o link da Mega Aula no WhatsApp que cadastrou.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top: 30px;">
+  <div class="section-inner fade-in">
+    <p class="section-label">Perguntas frequentes</p>
+    <h2 class="section-title">Ficou alguma dúvida?</h2>
+
+    <div class="faq-list" style="margin-top: 24px;">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          A aula é mesmo gratuita?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Sim, 100% gratuita. Não pedimos cartão, não cobramos nada. Você se cadastra, recebe o link no WhatsApp no dia 24/06 e assiste de graça.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como vou assistir a aula?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">A aula vai ao ar como um vídeo no YouTube. <strong>Você não precisa instalar nada</strong> — basta clicar no link que vai ser enviado no WhatsApp e assistir direto no navegador do celular ou computador. Funciona em qualquer dispositivo.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Vou poder rever depois?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Não. A Mega Aula fica disponível APENAS no dia 24/06 a partir das 20h. Depois sai do ar. Por isso é importante reservar a data e assistir.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quem é o público da aula? Eu ou meu filho?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Idealmente os dois assistem juntos. A aula foi pensada pro jovem aprender, mas é importante que o pai ou responsável esteja por perto pra apoiar e tirar dúvidas.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Por que receber pelo WhatsApp e não por e-mail?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">WhatsApp tem 95% de taxa de abertura — versus 20% do e-mail. Queremos garantir que você não vai perder o link. Você só recebe mensagens importantes da aula, sem spam.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Vou ser obrigado a comprar algum curso?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Não. A aula é gratuita e completa. No final, vou apresentar nosso curso completo pra quem quiser ir mais fundo, mas é totalmente opcional. Você sai com muito valor mesmo se não comprar nada.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quem está dando essa aula?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">A aula é apresentada pelo idealizador do curso Primeira Chance, que desenvolveu todo o material após pesquisar centenas de vagas de jovem aprendiz e processos seletivos no Brasil.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como vou receber a ferramenta de currículo?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Assim que você se cadastrar, recebe o link da ferramenta direto no WhatsApp. Pode usar imediatamente, antes mesmo da Mega Aula acontecer.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <h2>Não deixe seu filho aprender errando.<br>Como você fez.</h2>
+  <p>A primeira oportunidade não aparece duas vezes.</p>
+  <a href="#inscricao" class="btn-dark" onclick="trackEvent('Lead', 'footer_cta')">
+    Garantir vaga gratuita →
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Primeira Chance · Todos os direitos reservados</p>
+  <p style="margin-top: 6px; font-size: 11px;">Curso completo: <a href="https://cursoprimeirachance.com.br" target="_blank">cursoprimeirachance.com.br</a></p>
+  <p style="margin-top: 6px; font-size: 11px;">Contato: <a href="mailto:cursoprimeirachance@gmail.com">cursoprimeirachance@gmail.com</a></p>
+</footer>
+
+<script>
+// ============ CONFIGURAÇÃO ============
+// ⚠️ DATA E HORÁRIO DA AULA
+const DATA_AULA = new Date('2026-06-24T20:00:00-03:00'); // 24/06/2026 20h horário de Brasília
+const DURACAO_AULA = '50 minutos';
+
+// TODO: reativar quando tiver WhatsApp Business
+// Sem WhatsApp Business ainda: constantes vazias desativam wa.me e Canal.
+// Para reativar, basta preencher os valores novamente (número e link do Canal).
+const NUMERO_WHATSAPP = '';
+const LINK_CANAL_WHATSAPP = '';
+
+// ⚠️ GOOGLE SHEETS — BACKUP DE LEADS
+// URL do seu Web App do Google Apps Script (instruções no documento separado)
+// Se ainda não configurou, deixe a string vazia '' que ainda funciona (só não salva no Sheets)
+const URL_GOOGLE_SHEETS = 'https://script.google.com/macros/s/AKfycbzHfAyKGwslwaNCOhlgmWyWWzw5yKBffzu5Si4KmkJTEdWgMdVlSqFmlcopsaw2RcXx/exec';
+
+// ============ COUNTDOWN ============
+function atualizarCountdown() {
+  const agora = new Date().getTime();
+  const diff = DATA_AULA.getTime() - agora;
+
+  if (diff < 0) {
+    document.getElementById('cd-days').textContent = '00';
+    document.getElementById('cd-hours').textContent = '00';
+    document.getElementById('cd-minutes').textContent = '00';
+    document.getElementById('cd-seconds').textContent = '00';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+}
+atualizarCountdown();
+setInterval(atualizarCountdown, 1000);
+
+// ============ TRACKING ============
+function trackEvent(eventName, label) {
+  // GTM: empurra o evento pro dataLayer (GTM gerencia Pixel/GA via triggers)
+  if (window.dataLayer) {
+    window.dataLayer.push({ event: 'trackEvent', eventName: eventName,
+      eventLabel: label || 'unknown', eventCategory: 'mega_aula_landing' });
+  }
+  if (typeof fbq !== 'undefined') {
+    try { fbq('track', eventName, { source: label || 'unknown' }); } catch (e) {}
+  }
+  if (typeof gtag !== 'undefined') {
+    try {
+      gtag('event', eventName.toLowerCase().replace(/\s+/g, '_'), {
+        event_category: 'mega_aula_landing',
+        event_label: label || 'unknown'
+      });
+    } catch (e) {}
+  }
+  console.log('[Track]', eventName, label);
+}
+
+// ============ FAQ TOGGLE ============
+function toggleFaq(qEl) {
+  const answer = qEl.nextElementSibling;
+  const icon = qEl.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+
+  if (!isOpen) {
+    answer.classList.add('open');
+    icon.classList.add('open');
+  }
+}
+
+// ============ FORMULÁRIO ============
+async function enviarForm(e) {
+  e.preventDefault();
+
+  const submitBtn = document.getElementById('submitBtn');
+  const originalContent = submitBtn.innerHTML;
+
+  const nome = document.getElementById('nome').value.trim();
+  const filhoNome = document.getElementById('filhoNome').value.trim();
+  const filhoIdade = document.getElementById('filhoIdade').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+
+  if (!nome || !filhoNome || !filhoIdade || !whatsapp) {
+    alert('Por favor, preencha todos os campos.');
+    return;
+  }
+
+  // Estado de loading no botão
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '⏳ Salvando seus dados...';
+
+  // Track conversão
+  trackEvent('Lead', 'form_submitted');
+  trackEvent('CompleteRegistration', 'mega_aula_signup');
+
+  const lead = {
+    nome,
+    filhoNome,
+    filhoIdade,
+    whatsapp,
+    data: new Date().toISOString(),
+    origem: window.location.href,
+    userAgent: navigator.userAgent
+  };
+
+  // ===== BACKUP 1: localStorage (sempre) =====
+  try {
+    const leads = JSON.parse(localStorage.getItem('mega_aula_leads') || '[]');
+    leads.push(lead);
+    localStorage.setItem('mega_aula_leads', JSON.stringify(leads));
+  } catch (err) {}
+
+  // ===== BACKUP 2: Google Sheets (se configurado) =====
+  if (URL_GOOGLE_SHEETS && !URL_GOOGLE_SHEETS.includes('YOUR_SCRIPT_ID')) {
+    try {
+      // Usamos no-cors para evitar erro de CORS — não conseguimos ler resposta,
+      // mas a requisição é enviada e os dados chegam no Sheets
+      await fetch(URL_GOOGLE_SHEETS, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      });
+      console.log('[Sheets] Lead salvo');
+    } catch (err) {
+      console.error('[Sheets] Erro ao salvar:', err);
+      // Não impede o fluxo — o usuário continua mesmo assim
+    }
+  }
+
+  // Salvar dados na URL pra recuperar na página de obrigado
+  const params = new URLSearchParams({
+    nome,
+    filhoNome,
+    filhoIdade,
+    whatsapp
+  });
+
+  // TODO: reativar quando tiver WhatsApp Business
+  // Sem WhatsApp Business ainda: NÃO abrimos o wa.me. O formulário apenas
+  // salva o lead e redireciona pra página de obrigado (confirmação por e-mail).
+  // const mensagem = encodeURIComponent(
+  //   `Olá! Quero garantir minha vaga na Mega Aula gratuita de 24/06.\n\n` +
+  //   `📋 Meus dados:\n` +
+  //   `Nome: ${nome}\n` +
+  //   `Nome do filho: ${filhoNome}\n` +
+  //   `Idade do filho: ${filhoIdade} anos`
+  // );
+  // const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensagem}`;
+  // window.open(url, '_blank');
+
+  // Confirmar e redirecionar pra página de obrigado (sem abrir WhatsApp)
+  submitBtn.innerHTML = '✓ Inscrição confirmada!';
+
+  setTimeout(() => {
+    window.location.href = `obrigado.html?${params.toString()}`;
+  }, 600);
+}
+
+// ============ FADE IN ANIMATION ============
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

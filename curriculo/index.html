@@ -1,0 +1,2811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NNZXQPTD');</script>
+<!-- End Google Tag Manager -->
+<title>Gerador de Currículo — Primeira Chance</title>
+
+<!-- Pixel (Meta) e Google Analytics agora são gerenciados pelo Google Tag Manager (snippet acima). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #F5A623;
+    --amber-dark: #D4880A;
+    --amber-light: #FFF3D6;
+    --navy: #0F1C2E;
+    --navy-mid: #1E3048;
+    --coral: #FF5247;
+    --cream: #FAFAF5;
+    --gray-100: #F4F3EE;
+    --gray-200: #E8E6DF;
+    --gray-400: #9B9890;
+    --gray-700: #4A4840;
+    --white: #FFFFFF;
+    --green: #10B981;
+    --red: #EF4444;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* TOP BAR */
+  .top-bar {
+    background: var(--navy);
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    height: 60px;
+  }
+  body {
+    padding-top: 60px;
+    transition: padding-top 0.25s ease;
+  }
+  body.has-sticky-cta {
+    padding-top: 102px;
+  }
+  .top-mark {
+    width: 32px; height: 32px;
+    background: var(--amber);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .top-mark svg { width: 16px; height: 16px; }
+  .top-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -.02em;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 28px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: .07;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,166,35,.12);
+    border: 1px solid rgba(245,166,35,.25);
+    color: var(--amber);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  .hero-badges .hero-badge {
+    margin-bottom: 0;
+  }
+  .hero-badge-info {
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.18);
+    color: rgba(255,255,255,.85);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -.025em;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--amber); }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,.65);
+    max-width: 540px;
+    line-height: 1.6;
+  }
+
+  /* PROGRESS */
+  .progress-wrap {
+    max-width: 720px;
+    margin: -40px auto 24px;
+    padding: 0 5%;
+    position: relative;
+    z-index: 3;
+  }
+  .progress-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 20px rgba(15,28,46,.08);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .progress-info { flex: 1; }
+  .progress-label { font-size: 12px; color: var(--gray-400); margin-bottom: 4px; }
+  .progress-text { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .progress-bar {
+    margin-top: 8px;
+    height: 6px;
+    background: var(--gray-100);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--amber);
+    width: 0%;
+    transition: width .4s ease;
+    border-radius: 100px;
+  }
+  .progress-pct {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--amber);
+    letter-spacing: -.02em;
+  }
+
+  .container { max-width: 720px; margin: 0 auto 60px; padding: 0 5%; }
+
+  .step {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px 22px;
+    margin-bottom: 14px;
+    border: 1px solid var(--gray-200);
+    display: none;
+  }
+  .step.active { display: block; }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 9px;
+    background: var(--amber-light);
+    color: var(--amber-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -.02em;
+  }
+  .step-desc {
+    font-size: 14px;
+    color: var(--gray-700);
+    margin-bottom: 20px;
+    margin-left: 44px;
+  }
+
+  /* INPUTS */
+  .field { margin-bottom: 16px; }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 480px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  label .required { color: var(--coral); }
+  label .hint { color: var(--gray-400); font-weight: 400; margin-left: 4px; }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--navy);
+    background: var(--white);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(245,166,35,.15);
+  }
+  textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+  input.warn { border-color: var(--coral); background: #FFF7F6; }
+
+  .field-help {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .field-help.warn { color: var(--coral); font-weight: 500; }
+  .field-help.success { color: var(--green); font-weight: 500; }
+
+  /* DYNAMIC ITEMS */
+  .dynamic-item {
+    background: var(--gray-100);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s;
+  }
+  .remove-btn:hover { background: var(--coral); color: var(--white); }
+  .add-btn {
+    background: transparent;
+    border: 1.5px dashed var(--gray-200);
+    color: var(--gray-700);
+    padding: 12px;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all .15s;
+    margin-top: 4px;
+  }
+  .add-btn:hover {
+    border-color: var(--amber);
+    color: var(--amber-dark);
+    background: var(--amber-light);
+  }
+
+  /* TIPS */
+  .tip {
+    background: var(--amber-light);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .tip-text { font-size: 13px; color: var(--gray-700); line-height: 1.5; }
+  .tip-text strong { color: var(--navy); font-weight: 600; }
+
+  .warn-box {
+    background: #FFF7F6;
+    border-left: 3px solid var(--coral);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .warn-box .tip-icon { color: var(--coral); }
+
+  /* NAVIGATION */
+  .nav-buttons { display: flex; gap: 10px; margin-top: 22px; }
+  .btn {
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .btn-primary { background: var(--amber); color: var(--navy); }
+  .btn-primary:hover { background: var(--amber-dark); transform: translateY(-1px); }
+  .btn-primary:disabled {
+    background: var(--gray-200);
+    color: var(--gray-400);
+    cursor: not-allowed;
+    transform: none;
+  }
+  .btn-ghost { background: var(--gray-100); color: var(--navy); }
+  .btn-ghost:hover { background: var(--gray-200); }
+  .btn-success {
+    background: var(--navy);
+    color: var(--amber);
+    font-size: 15px;
+    padding: 16px 24px;
+  }
+  .btn-success:hover { background: var(--navy-mid); transform: translateY(-1px); }
+  .btn-icon { font-size: 16px; }
+
+  /* STEP INDICATOR */
+  .steps-nav {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    padding: 0 5%;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .steps-nav::-webkit-scrollbar { display: none; }
+  .step-dot {
+    flex: 1;
+    min-width: 60px;
+    height: 4px;
+    background: var(--gray-200);
+    border-radius: 100px;
+    transition: background .3s;
+  }
+  .step-dot.done { background: var(--green); }
+  .step-dot.active { background: var(--amber); }
+
+  /* FINAL STEP */
+  .final-step { text-align: center; padding: 30px 20px; }
+  .final-icon {
+    width: 72px; height: 72px;
+    background: var(--amber-light);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 36px;
+  }
+  .final-step h2 { margin-bottom: 10px; text-align: center; }
+  .final-step p {
+    font-size: 15px;
+    color: var(--gray-700);
+    margin-bottom: 24px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-tip {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-200);
+    font-size: 13px;
+    color: var(--gray-400);
+  }
+  .footer-tip strong { color: var(--gray-700); }
+
+  /* ============ PREVIEW STEP ============ */
+  .preview-wrap {
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 18px 0;
+    overflow-x: auto;
+  }
+
+  .preview-page {
+    background: white;
+    width: 100%;
+    max-width: 595px;
+    min-height: 842px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(15,28,46,.12);
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #4A4840;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .preview-header-block {
+    background: var(--navy);
+    color: white;
+    padding: 22px 28px;
+  }
+  .preview-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .preview-role {
+    color: var(--amber);
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+  .preview-contact {
+    font-size: 9.5px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+  .preview-age {
+    font-size: 9px;
+    color: var(--amber);
+    margin-top: 3px;
+  }
+
+  .preview-body { padding: 18px 28px 28px 28px; }
+
+  .preview-section { margin-bottom: 14px; }
+  .preview-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 0.8px solid var(--amber);
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  .preview-text {
+    color: #4A4840;
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
+
+  .preview-item { margin-bottom: 8px; }
+  .preview-item-title {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 11px;
+    margin-bottom: 1px;
+  }
+  .preview-item-subtitle {
+    color: var(--gray-400);
+    font-size: 9.5px;
+    margin-bottom: 2px;
+  }
+  .preview-item-desc {
+    color: #4A4840;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .preview-skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+  }
+  .preview-skill {
+    font-size: 10.5px;
+    color: #4A4840;
+    padding-left: 4px;
+  }
+  .preview-skill::before {
+    content: "•  ";
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  .preview-bullets { padding-left: 4px; }
+  .preview-bullet {
+    font-size: 10.5px;
+    color: #4A4840;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+  .preview-bullet::before {
+    content: "•  ";
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  .preview-footer {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 7.5px;
+    color: var(--gray-400);
+    font-style: italic;
+  }
+
+  .preview-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .preview-actions .btn {
+    min-width: 140px;
+  }
+
+  .preview-instructions {
+    background: var(--amber-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .preview-instructions .tip-icon { font-size: 18px; }
+  .preview-instructions p {
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+  .preview-instructions strong { color: var(--navy); font-weight: 600; }
+
+  /* error state */
+  .error-msg {
+    background: #FFF7F6;
+    border: 1.5px solid var(--coral);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 14px 0;
+    color: var(--coral);
+    font-size: 13px;
+    display: none;
+  }
+  .error-msg.show { display: block; }
+  .error-msg strong { color: var(--coral); font-weight: 600; }
+
+  /* ============ OFERTA DO CURSO ============ */
+  .success-banner {
+    background: linear-gradient(135deg, #EAF3DE 0%, #FFF3D6 100%);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .success-icon {
+    width: 48px; height: 48px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .success-text {
+    flex: 1;
+  }
+  .success-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .success-subtitle {
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.4;
+  }
+
+  .offer-card {
+    background: var(--navy);
+    color: white;
+    border-radius: 16px;
+    padding: 28px 22px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .offer-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: .08;
+  }
+  .offer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,166,35,.15);
+    border: 1px solid rgba(245,166,35,.3);
+    color: var(--amber);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  h2.offer-headline {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 4.5vw, 28px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  h2.offer-headline span { color: var(--amber); }
+
+  .offer-subhead {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    line-height: 1.55;
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  .offer-features {
+    background: rgba(255,255,255,.05);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .offer-features-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 10px;
+  }
+  .offer-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 13px;
+    color: rgba(255,255,255,.85);
+    line-height: 1.5;
+  }
+  .offer-feature::before {
+    content: '✓';
+    color: var(--amber);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-top: -1px;
+  }
+
+  .offer-price-box {
+    background: var(--amber);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .offer-price-strike {
+    font-size: 13px;
+    color: rgba(15,28,46,.5);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .offer-price-main {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -.03em;
+  }
+  .offer-price-main sup {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 2px;
+  }
+  .offer-price-installment {
+    font-size: 13px;
+    color: rgba(15,28,46,.7);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .offer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--amber);
+    color: var(--navy);
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    transition: all .15s;
+    font-family: var(--font-body);
+    position: relative;
+  }
+  .offer-cta:hover {
+    background: var(--amber-dark);
+    transform: translateY(-1px);
+  }
+
+  .offer-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+    position: relative;
+  }
+
+  .secondary-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .secondary-actions .btn {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .whatsapp-card {
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-top: 6px;
+  }
+  .whatsapp-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .whatsapp-icon {
+    width: 28px; height: 28px;
+    background: #25D366;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+  }
+  .whatsapp-icon svg { width: 16px; height: 16px; }
+  .whatsapp-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .whatsapp-desc {
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.5;
+    margin-bottom: 10px;
+    margin-left: 38px;
+  }
+  .btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: white;
+    color: #128C7E;
+    border: 1.5px solid #25D366;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    transition: all .15s;
+    font-family: var(--font-body);
+  }
+  .btn-whatsapp:hover {
+    background: #25D366;
+    color: white;
+  }
+
+  /* ============ MODULE TEASE BANNER (item 1+9) ============ */
+  .module-tease {
+    background: linear-gradient(135deg, var(--amber-light) 0%, #FFFBEC 100%);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 14px 0 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1px solid rgba(245,166,35,.18);
+  }
+  .module-tease-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 1px;
+  }
+  .module-tease-content { flex: 1; min-width: 0; }
+  .module-tease-text {
+    font-size: 12.5px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .module-tease-text strong { color: var(--navy); font-weight: 600; }
+  .module-tease-link {
+    font-size: 12px;
+    color: var(--amber-dark);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 3px;
+    transition: color .15s;
+  }
+  .module-tease-link:hover {
+    color: var(--navy);
+    text-decoration: underline;
+  }
+
+  /* ============ STICKY CTA (item 12) ============ */
+  .sticky-cta {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--amber);
+    padding: 9px 16px;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(15,28,46,.1);
+    transition: background .15s;
+    border: none;
+    text-decoration: none;
+    font-family: var(--font-body);
+    width: 100%;
+  }
+  .sticky-cta.show {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+  .sticky-cta:hover { background: var(--amber-dark); }
+  .sticky-cta-arrow {
+    font-weight: 700;
+    transition: transform .2s;
+  }
+  .sticky-cta:hover .sticky-cta-arrow { transform: translateX(2px); }
+  @keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* ============ LOADING OVERLAY (item 2) ============ */
+  .loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 28, 46, 0.96);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .loading-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .loading-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px 22px;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .loading-spinner {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px;
+    border-radius: 14px;
+    background: var(--amber-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  .loading-spinner svg {
+    width: 28px;
+    height: 28px;
+    color: var(--amber-dark);
+    animation: spin 2s linear infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .loading-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .loading-message {
+    font-size: 13.5px;
+    color: var(--gray-700);
+    line-height: 1.5;
+    min-height: 42px;
+    margin-bottom: 18px;
+    transition: opacity 0.4s;
+  }
+  .loading-message strong { color: var(--navy); font-weight: 600; }
+  .loading-bar {
+    height: 6px;
+    background: var(--gray-100);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .loading-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber) 0%, var(--amber-dark) 100%);
+    width: 0%;
+    border-radius: 100px;
+    transition: width 0.1s linear;
+  }
+  .loading-pct {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .loading-mini-offer {
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 14px;
+    text-align: left;
+  }
+  .loading-mini-offer-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--amber-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .loading-mini-offer-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .loading-mini-offer-price {
+    font-size: 12px;
+    color: var(--gray-700);
+    margin-bottom: 10px;
+  }
+  .loading-mini-offer-price strong {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .loading-mini-offer-link {
+    background: var(--navy);
+    color: var(--amber);
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background .15s;
+  }
+  .loading-mini-offer-link:hover { background: var(--navy-mid); }
+
+  /* ============ COMPARISON TABLE (item 5) ============ */
+  .comparison-wrap {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    padding: 16px 14px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .comparison-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .comparison-headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  .comparison-header-cell {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .comparison-header-cell.free { color: rgba(255,255,255,0.55); }
+  .comparison-header-cell.pro { color: var(--amber); }
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 5px 0;
+  }
+  .comparison-cell {
+    font-size: 11.5px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .comparison-cell.free { color: rgba(255,255,255,0.45); }
+  .comparison-cell.pro { color: rgba(255,255,255,0.9); }
+  .comparison-icon-yes {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .comparison-icon-no {
+    color: rgba(255,255,255,0.25);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  /* ============ EXIT INTENT OVERLAY (item 6) ============ */
+  .exit-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 28, 46, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .exit-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s;
+  }
+  .exit-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px 22px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    animation: slideUp 0.4s ease;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .exit-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .15s;
+  }
+  .exit-close:hover { background: var(--gray-200); }
+  .exit-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+  .exit-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .exit-title span { color: var(--amber-dark); }
+  .exit-text {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .exit-text strong { color: var(--navy); font-weight: 600; }
+  .exit-price {
+    background: var(--amber-light);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .exit-price-strike {
+    font-size: 12px;
+    color: rgba(15,28,46,.5);
+    text-decoration: line-through;
+  }
+  .exit-price-options {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 16px;
+    margin: 6px 0 0;
+  }
+  .exit-price-opt {
+    text-align: center;
+  }
+  .exit-price-amount {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .exit-price-label {
+    font-size: 11px;
+    color: var(--gray-700);
+    margin-top: 2px;
+  }
+  .exit-price-divider {
+    width: 1px;
+    background: rgba(15,28,46,.15);
+  }
+  .exit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .exit-cta {
+    background: var(--navy);
+    color: var(--amber);
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all .15s;
+    font-family: var(--font-body);
+  }
+  .exit-cta:hover { background: var(--navy-mid); }
+  .exit-secondary {
+    background: transparent;
+    color: var(--gray-400);
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .exit-secondary:hover { color: var(--gray-700); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 24px 5%;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+  }
+  footer a { color: var(--amber); text-decoration: none; }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNZXQPTD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="https://cursoprimeirachance.com.br" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; text-decoration: none; transition: opacity .15s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+    <div class="top-mark">
+      <svg viewBox="0 0 18 18" fill="none">
+        <path d="M2 10L7 15L16 4" stroke="#0F1C2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="top-name">Primeira Chance</span>
+  </a>
+</div>
+
+<!-- ============ STICKY CTA (item 12) ============ -->
+<a href="https://pay.hotmart.com/Q100823141D" target="_blank" rel="noopener" class="sticky-cta" id="sticky-cta" onclick="trackEvent('InitiateCheckout', 'sticky_cta')">
+  <span>💎 Curso completo: 12x R$41,06 no cartão</span>
+  <span class="sticky-cta-arrow">→</span>
+</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <div class="hero-badge">Ferramenta gratuita</div>
+      <div class="hero-badge hero-badge-info">👤 Jovens de 12 a 18 anos</div>
+    </div>
+    <h1>Crie seu currículo<br>em <span>5 minutos</span>.</h1>
+    <p>Preencha os campos abaixo, visualize o resultado e baixe seu currículo profissional em PDF.</p>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-card">
+    <div class="progress-info">
+      <div class="progress-label">Progresso</div>
+      <div class="progress-text" id="progress-text">Etapa 1 de 8 — Dados pessoais</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+    <div class="progress-pct" id="progress-pct">12%</div>
+  </div>
+</div>
+
+<!-- STEPS NAV -->
+<div class="steps-nav" id="steps-nav">
+  <div class="step-dot active"></div>
+  <div class="step-dot"></div>
+  <div class="step-dot"></div>
+  <div class="step-dot"></div>
+  <div class="step-dot"></div>
+  <div class="step-dot"></div>
+  <div class="step-dot"></div>
+  <div class="step-dot"></div>
+</div>
+
+<div class="container">
+
+  <!-- ETAPA 1: DADOS PESSOAIS -->
+  <div class="step active" data-step="1">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <h2>Dados pessoais</h2>
+    </div>
+    <div class="step-desc">Comece pelo básico: como o recrutador vai te contatar.</div>
+
+    <div class="field">
+      <label for="nome">Nome completo <span class="required">*</span></label>
+      <input type="text" id="nome" placeholder="Ex: João da Silva" autocomplete="name">
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="idade">Idade <span class="required">*</span></label>
+        <input type="number" id="idade" min="12" max="18" placeholder="15">
+      </div>
+      <div class="field">
+        <label for="cidade">Cidade / Estado <span class="required">*</span></label>
+        <input type="text" id="cidade" placeholder="Ex: Joinville, SC" autocomplete="address-level2">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="email">E-mail <span class="required">*</span></label>
+      <input type="email" id="email" placeholder="seu.nome@email.com" autocomplete="email">
+      <div class="field-help" id="email-help">Use um e-mail profissional (com seu nome real, sem números engraçados ou apelidos).</div>
+    </div>
+
+    <div class="field">
+      <label for="telefone">Telefone / WhatsApp <span class="required">*</span></label>
+      <input type="tel" id="telefone" placeholder="(00) 90000-0000" autocomplete="tel">
+    </div>
+
+    <div class="module-tease">
+      <span class="module-tease-icon">📚</span>
+      <div class="module-tease-content">
+        <div class="module-tease-text"><strong>O e-mail certo já é 30% da boa impressão.</strong> No Módulo 6 do curso, você aprende como otimizar todos os dados de contato pra impressionar recrutadores na primeira leitura.</div>
+        <a href="https://cursoprimeirachance.com.br" target="_blank" class="module-tease-link" onclick="trackEvent('ViewContent', 'tease_step1')">Conhecer o curso completo →</a>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-primary" onclick="nextStep()">Continuar <span class="btn-icon">→</span></button>
+    </div>
+  </div>
+
+  <!-- ETAPA 2: OBJETIVO -->
+  <div class="step" data-step="2">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <h2>Objetivo profissional</h2>
+    </div>
+    <div class="step-desc">Uma frase só dizendo o cargo ou área que você quer.</div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <div class="tip-text"><strong>Dica:</strong> Adapte a área para cada vaga. Para uma vaga administrativa, escreva "área administrativa". Para uma vaga de vendas, "área comercial".</div>
+    </div>
+
+    <div class="field">
+      <label for="area">Qual área você quer? <span class="required">*</span></label>
+      <input type="text" id="area" placeholder="Ex: administrativa, comercial, atendimento, logística">
+      <div class="field-help">Seja específico. "Qualquer área" passa que você não pensou no que quer.</div>
+    </div>
+
+    <div class="field">
+      <label for="objetivo">Objetivo profissional <span class="hint">(será gerado automaticamente)</span></label>
+      <textarea id="objetivo" rows="3" placeholder="Será preenchido com base na área que você digitou acima..."></textarea>
+      <div class="field-help">Você pode editar à vontade. O modelo já vem pronto para usar.</div>
+    </div>
+
+    <div class="module-tease">
+      <span class="module-tease-icon">🎯</span>
+      <div class="module-tease-content">
+        <div class="module-tease-text"><strong>Objetivo genérico = currículo na pilha.</strong> No curso completo, você aprende como adaptar o objetivo profissional pra cada vaga e fazer o recrutador parar pra ler o seu.</div>
+        <a href="https://cursoprimeirachance.com.br" target="_blank" class="module-tease-link" onclick="trackEvent('ViewContent', 'tease_step2')">Ver no curso completo →</a>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-ghost" onclick="prevStep()">← Voltar</button>
+      <button class="btn btn-primary" onclick="nextStep()">Continuar <span class="btn-icon">→</span></button>
+    </div>
+  </div>
+
+  <!-- ETAPA 3: FORMAÇÃO -->
+  <div class="step" data-step="3">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <h2>Formação acadêmica</h2>
+    </div>
+    <div class="step-desc">Sua escola atual e qualquer curso extra que você fez.</div>
+
+    <div class="field">
+      <label for="escola">Escola atual <span class="required">*</span></label>
+      <input type="text" id="escola" placeholder="Ex: Escola Estadual Prof. Ayrton Senna">
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="serie">Série <span class="required">*</span></label>
+        <select id="serie">
+          <option value="">Selecione...</option>
+          <option value="6º ano do Ensino Fundamental">6º ano do Ensino Fundamental</option>
+          <option value="7º ano do Ensino Fundamental">7º ano do Ensino Fundamental</option>
+          <option value="8º ano do Ensino Fundamental">8º ano do Ensino Fundamental</option>
+          <option value="9º ano do Ensino Fundamental">9º ano do Ensino Fundamental</option>
+          <option value="1º ano do Ensino Médio">1º ano do Ensino Médio</option>
+          <option value="2º ano do Ensino Médio">2º ano do Ensino Médio</option>
+          <option value="3º ano do Ensino Médio">3º ano do Ensino Médio</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="conclusao">Previsão de conclusão</label>
+        <input type="text" id="conclusao" placeholder="Ex: dezembro de 2026">
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">📚</span>
+      <div class="tip-text"><strong>Tudo conta como curso extra:</strong> inglês, informática, esportes com certificado, Duolingo, cursos do Sebrae, Coursera, Alura, qualquer coisa que tenha comprovante.</div>
+    </div>
+
+    <div id="cursos-list"></div>
+    <button class="add-btn" onclick="addCurso()">+ Adicionar curso extra</button>
+
+    <div class="module-tease">
+      <span class="module-tease-icon">🎓</span>
+      <div class="module-tease-content">
+        <div class="module-tease-text"><strong>Não tem cursos extras pra colocar?</strong> No curso completo, você descobre como destacar formação básica e transformar atividades comuns em diferencial profissional.</div>
+        <a href="https://cursoprimeirachance.com.br" target="_blank" class="module-tease-link" onclick="trackEvent('ViewContent', 'tease_step3')">Conhecer o curso →</a>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-ghost" onclick="prevStep()">← Voltar</button>
+      <button class="btn btn-primary" onclick="nextStep()">Continuar <span class="btn-icon">→</span></button>
+    </div>
+  </div>
+
+  <!-- ETAPA 4: HABILIDADES -->
+  <div class="step" data-step="4">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <h2>Habilidades</h2>
+    </div>
+    <div class="step-desc">O que você sabe fazer. Marque as que se aplicam.</div>
+
+    <div class="warn-box">
+      <span class="tip-icon">⚠️</span>
+      <div class="tip-text"><strong>Seja honesto.</strong> "Excel básico" é melhor que "Excel avançado" se você não souber. Na entrevista, mentiras caem em 2 minutos.</div>
+    </div>
+
+    <div class="field">
+      <label>Marque pelo menos 3 habilidades <span class="required">*</span></label>
+      <div id="habilidades-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;"></div>
+    </div>
+
+    <div class="field" style="margin-top: 18px;">
+      <label for="habilidade-extra">Adicionar outra habilidade <span class="hint">(opcional)</span></label>
+      <input type="text" id="habilidade-extra" placeholder="Ex: Inglês básico, Edição de vídeo, Vendas...">
+      <button class="add-btn" onclick="addHabilidadeExtra()" style="margin-top: 8px;">+ Adicionar</button>
+    </div>
+
+    <div id="habilidades-extras-list"></div>
+
+    <div class="module-tease">
+      <span class="module-tease-icon">💻</span>
+      <div class="module-tease-content">
+        <div class="module-tease-text"><strong>Quer realmente dominar Excel, Word, Canva e IA?</strong> O Módulo 4 e 5 do curso ensinam as habilidades digitais mais valorizadas pra primeira vaga — do zero ao prático.</div>
+        <a href="https://cursoprimeirachance.com.br" target="_blank" class="module-tease-link" onclick="trackEvent('ViewContent', 'tease_step4')">Ver módulos completos →</a>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-ghost" onclick="prevStep()">← Voltar</button>
+      <button class="btn btn-primary" onclick="nextStep()">Continuar <span class="btn-icon">→</span></button>
+    </div>
+  </div>
+
+  <!-- ETAPA 5: EXPERIÊNCIA -->
+  <div class="step" data-step="5">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <h2>Experiência</h2>
+    </div>
+    <div class="step-desc">Sem trabalho formal? Sem problema. Tudo conta aqui.</div>
+
+    <div class="tip">
+      <span class="tip-icon">✨</span>
+      <div class="tip-text"><strong>O que vale como experiência:</strong> ajudar em negócio da família, voluntariado, projetos da escola, grêmio escolar, esportes com responsabilidade.</div>
+    </div>
+
+    <div id="experiencias-list"></div>
+    <button class="add-btn" onclick="addExperiencia()">+ Adicionar experiência</button>
+
+    <div class="module-tease">
+      <span class="module-tease-icon">⚡</span>
+      <div class="module-tease-content">
+        <div class="module-tease-text"><strong>A forma como você descreve experiências decide a vaga.</strong> No Módulo 1 do curso, aprenda a transformar qualquer experiência (até voluntariado) em diferencial profissional irresistível.</div>
+        <a href="https://cursoprimeirachance.com.br" target="_blank" class="module-tease-link" onclick="trackEvent('ViewContent', 'tease_step5')">Aprender no curso →</a>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-ghost" onclick="prevStep()">← Voltar</button>
+      <button class="btn btn-primary" onclick="nextStep()">Continuar <span class="btn-icon">→</span></button>
+    </div>
+  </div>
+
+  <!-- ETAPA 6: COMPLEMENTARES -->
+  <div class="step" data-step="6">
+    <div class="step-header">
+      <div class="step-num">6</div>
+      <h2>Últimos detalhes</h2>
+    </div>
+    <div class="step-desc">Mais algumas informações e seu currículo está pronto.</div>
+
+    <div class="field">
+      <label>Disponibilidade de horário</label>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 8px;">
+        <label style="display: flex; align-items: center; gap: 6px; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: 8px; cursor: pointer; font-size: 13px;">
+          <input type="checkbox" id="disp-manha" value="manhã"> Manhã
+        </label>
+        <label style="display: flex; align-items: center; gap: 6px; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: 8px; cursor: pointer; font-size: 13px;">
+          <input type="checkbox" id="disp-tarde" value="tarde" checked> Tarde
+        </label>
+        <label style="display: flex; align-items: center; gap: 6px; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: 8px; cursor: pointer; font-size: 13px;">
+          <input type="checkbox" id="disp-noite" value="noite"> Noite
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="ingles">Nível de inglês</label>
+      <select id="ingles">
+        <option value="">Não informar</option>
+        <option value="Básico">Básico</option>
+        <option value="Intermediário">Intermediário</option>
+        <option value="Avançado">Avançado</option>
+        <option value="Fluente">Fluente</option>
+      </select>
+      <div class="field-help">Seja honesto. Se você fala "the book is on the table", é básico mesmo.</div>
+    </div>
+
+    <div class="field">
+      <label for="observacoes">Outras informações <span class="hint">(opcional)</span></label>
+      <textarea id="observacoes" rows="3" placeholder="Ex: Participação no grêmio escolar, esporte que pratica, hobbies relevantes..."></textarea>
+      <div class="field-help">Cada linha vira um item no currículo.</div>
+    </div>
+
+    <div class="module-tease">
+      <span class="module-tease-icon">🚪</span>
+      <div class="module-tease-content">
+        <div class="module-tease-text"><strong>Currículo bom abre a porta. Mas é a entrevista que entra.</strong> O Módulo 6 do curso completo prepara você pra responder as 6 perguntas mais difíceis sem travar e sair com a vaga.</div>
+        <a href="https://cursoprimeirachance.com.br" target="_blank" class="module-tease-link" onclick="trackEvent('ViewContent', 'tease_step6')">Aprender entrevista →</a>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-ghost" onclick="prevStep()">← Voltar</button>
+      <button class="btn btn-primary" onclick="goToPreview()">Visualizar currículo <span class="btn-icon">👁️</span></button>
+    </div>
+  </div>
+
+  <!-- ETAPA 7: PREVIEW -->
+  <div class="step" data-step="7">
+    <div class="step-header">
+      <div class="step-num">✓</div>
+      <h2>Pré-visualização do currículo</h2>
+    </div>
+    <div class="step-desc">Revise antes de baixar. Está tudo correto?</div>
+
+    <div class="preview-instructions">
+      <span class="tip-icon">👀</span>
+      <p>Confira cada seção com calma. Se algo estiver errado, clica em <strong>"Voltar e editar"</strong>. Quando estiver tudo certo, baixa o PDF.</p>
+    </div>
+
+    <div class="preview-wrap">
+      <div class="preview-page" id="preview-page"></div>
+    </div>
+
+    <div class="error-msg" id="error-msg">
+      <strong>Algo deu errado ao gerar o PDF.</strong>
+      <span id="error-detail"></span>
+    </div>
+
+    <!-- Captura de lead opcional (consentimento explícito, DESMARCADO por padrão) -->
+    <div class="lead-optin" style="margin-top: 22px; padding: 16px 18px; border: 1px solid #e8e6e1; border-radius: 12px; background: #faf9f7;">
+      <label style="display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: 14px; line-height: 1.45; color: #4a4840;">
+        <input type="checkbox" id="lead-consent" style="margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; accent-color: #f5a623;">
+        <span>Sou o responsável e quero receber <strong>dicas gratuitas de carreira</strong> para o(a) jovem. Autorizo o Primeira Chance a entrar em contato comigo. Saiba como tratamos seus dados na nossa <!-- TODO: linkar /privacidade quando publicada --><a href="#" onclick="event.preventDefault();">Política de Privacidade</a>. <em>Opcional — o download funciona sem marcar.</em></span>
+      </label>
+      <div style="margin-top: 12px;">
+        <label for="resp-whatsapp" style="display: block; font-size: 13px; font-weight: 600; color: #4a4840; margin-bottom: 6px;">WhatsApp do responsável <span style="font-weight: 400; color: #9b9890;">(opcional)</span></label>
+        <input type="tel" id="resp-whatsapp" placeholder="(00) 90000-0000" autocomplete="tel" style="width: 100%;">
+        <div style="font-size: 12px; color: #9b9890; margin-top: 6px;">Preencha só se quiser receber as dicas. Os dados do currículo continuam no seu dispositivo.</div>
+      </div>
+    </div>
+
+    <div class="preview-actions">
+      <button class="btn btn-ghost" onclick="goToStep(1)">← Voltar e editar</button>
+      <button class="btn btn-success" onclick="gerarPDF()">📥 Baixar em PDF</button>
+    </div>
+
+    <div class="footer-tip">
+      <strong>Próximo passo:</strong> antes de enviar para vagas, peça para um adulto de confiança ler seu currículo. Quatro olhos enxergam mais que dois.
+    </div>
+  </div>
+
+  <!-- ETAPA 8: OFERTA DO CURSO (após download) -->
+  <div class="step" data-step="8">
+
+    <!-- Banner de sucesso -->
+    <div class="success-banner">
+      <div class="success-icon">✓</div>
+      <div class="success-text">
+        <div class="success-title">Currículo baixado com sucesso!</div>
+        <div class="success-subtitle">Confere a pasta de Downloads do seu dispositivo.</div>
+      </div>
+    </div>
+
+    <!-- Card da oferta -->
+    <div class="offer-card">
+      <div class="offer-badge">
+        <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--amber);"></span>
+        Curso completo
+      </div>
+
+      <h2 class="offer-headline">Você fez seu currículo.<br>Agora aprenda a <span>conseguir o emprego</span>.</h2>
+
+      <p class="offer-subhead">O currículo abre a porta. Mas tem muito mais que você precisa saber pra conquistar a primeira vaga — e a maioria dos jovens nunca aprendeu.</p>
+
+      <!-- Comparativo visual (item 5) -->
+      <div class="comparison-wrap">
+        <div class="comparison-title">⚖️ Comparativo</div>
+        <div class="comparison-headers">
+          <div class="comparison-header-cell free">Você fez agora</div>
+          <div class="comparison-header-cell pro">Curso completo</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell free"><span class="comparison-icon-yes">✓</span> Currículo</div>
+          <div class="comparison-cell pro"><span class="comparison-icon-yes">✓</span> Currículo profissional</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell free"><span class="comparison-icon-no">✗</span> —</div>
+          <div class="comparison-cell pro"><span class="comparison-icon-yes">✓</span> Entrevista simulada</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell free"><span class="comparison-icon-no">✗</span> —</div>
+          <div class="comparison-cell pro"><span class="comparison-icon-yes">✓</span> Excel + Word + IA</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell free"><span class="comparison-icon-no">✗</span> —</div>
+          <div class="comparison-cell pro"><span class="comparison-icon-yes">✓</span> LinkedIn otimizado</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell free"><span class="comparison-icon-no">✗</span> —</div>
+          <div class="comparison-cell pro"><span class="comparison-icon-yes">✓</span> Primeiros 30 dias</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell free"><span class="comparison-icon-no">✗</span> —</div>
+          <div class="comparison-cell pro"><span class="comparison-icon-yes">✓</span> Certificado</div>
+        </div>
+      </div>
+
+      <div class="offer-features">
+        <div class="offer-features-title">No curso completo você vai aprender:</div>
+        <div class="offer-feature">Como se comportar na entrevista (sem travar nas perguntas)</div>
+        <div class="offer-feature">Como funciona uma empresa por dentro: hierarquia, setores, comunicação</div>
+        <div class="offer-feature">E-mail profissional, Excel, Word e IA na prática</div>
+        <div class="offer-feature">LinkedIn otimizado para a primeira vaga</div>
+        <div class="offer-feature">Como agir nos primeiros 30 dias para ser efetivado</div>
+        <div class="offer-feature">6 módulos · 40 aulas em vídeo · ~20 horas de conteúdo</div>
+        <div class="offer-feature">Certificado de conclusão + comunidade exclusiva</div>
+      </div>
+
+      <div class="offer-price-box">
+        <div class="offer-price-strike">de R$ 789</div>
+        <div class="offer-price-main"><sup>R$</sup>397</div>
+        <div class="offer-price-installment">à vista · ou 12x R$41,06 no cartão</div>
+      </div>
+
+      <a href="https://pay.hotmart.com/Q100823141D" target="_blank" rel="noopener" class="offer-cta" onclick="trackEvent('InitiateCheckout', 'main_offer_cta')">
+        Quero o curso completo →
+      </a>
+
+      <div class="offer-trust">
+        <span>🔒</span> Pagamento seguro · Garantia de 7 dias
+      </div>
+    </div>
+
+    <!-- Ações secundárias -->
+    <div class="secondary-actions">
+      <button class="btn btn-ghost" onclick="goToStep(7)">← Baixar PDF de novo</button>
+      <button class="btn btn-ghost" onclick="visitarSite()">Conhecer o curso</button>
+      <button class="btn btn-ghost" onclick="compartilharGerador()">🔗 Compartilhar com outros pais</button>
+    </div>
+
+    <!-- 2ª isca de captura — só aparece se o lead NÃO foi enviado antes do download (ver showStep) -->
+    <div class="lead-optin" id="lead-optin-2" style="margin-top: 16px; padding: 16px 18px; border: 1px solid #e8e6e1; border-radius: 12px; background: #faf9f7;">
+      <label style="display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: 14px; line-height: 1.45; color: #4a4840;">
+        <input type="checkbox" id="lead-consent-2" style="margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; accent-color: #f5a623;">
+        <span>Sou o responsável e quero receber os links do <strong>Simulador de Entrevista</strong> e do guia <strong>Onde Encontrar Vagas</strong> para o(a) jovem. Autorizo o Primeira Chance a entrar em contato comigo. Saiba como tratamos seus dados na nossa <!-- TODO: linkar /privacidade quando publicada --><a href="#" onclick="event.preventDefault();">Política de Privacidade</a>.</span>
+      </label>
+      <div style="margin-top: 12px;">
+        <label for="resp-whatsapp-2" style="display: block; font-size: 13px; font-weight: 600; color: #4a4840; margin-bottom: 6px;">WhatsApp do responsável <span style="font-weight: 400; color: #9b9890;">(opcional)</span></label>
+        <input type="tel" id="resp-whatsapp-2" placeholder="(00) 90000-0000" autocomplete="tel" style="width: 100%;">
+        <div style="font-size: 12px; color: #9b9890; margin-top: 6px;">Enviamos só os links úteis. Nenhum dado do(a) jovem é coletado.</div>
+      </div>
+      <button class="btn btn-success" style="width: 100%; margin-top: 12px;" onclick="enviarLeadOpcional2()">Quero receber os links</button>
+      <div id="lead-optin-2-ok" style="display: none; margin-top: 10px; font-size: 13px; color: #128C7E; font-weight: 600;">✓ Pronto! Você vai receber os links em breve.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <p>Ferramenta gratuita do curso <a href="https://cursoprimeirachance.com.br" target="_blank">Primeira Chance</a></p>
+  <p style="margin-top: 6px; font-size: 11px;">Seu currículo é gerado no seu dispositivo. Só enviamos dados de contato se você marcar a opção de receber dicas.</p>
+  <p style="margin-top: 6px; font-size: 11px;">Contato: <a href="mailto:cursoprimeirachance@gmail.com">cursoprimeirachance@gmail.com</a></p>
+</footer>
+
+<!-- ============ LOADING OVERLAY (item 2) ============ -->
+<div class="loading-overlay" id="loading-overlay">
+  <div class="loading-card">
+    <div class="loading-spinner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+      </svg>
+    </div>
+    <h3 class="loading-title">Preparando seu currículo</h3>
+    <p class="loading-message" id="loading-message">Aplicando padrão profissional ao layout...</p>
+    <div class="loading-bar">
+      <div class="loading-bar-fill" id="loading-bar"></div>
+    </div>
+    <div class="loading-pct" id="loading-pct">0%</div>
+
+    <div class="loading-mini-offer">
+      <div class="loading-mini-offer-label">⚡ Curso completo</div>
+      <div class="loading-mini-offer-title">Aprenda tudo que a escola não ensina. Do zero ao Primeiro Emprego.</div>
+      <div class="loading-mini-offer-price">
+        <strong>R$ 397</strong> · ou 12x R$41,06 no cartão
+      </div>
+      <a href="https://pay.hotmart.com/Q100823141D" target="_blank" rel="noopener" class="loading-mini-offer-link" onclick="trackEvent('InitiateCheckout', 'loading_screen')">
+        Ver curso completo →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXIT INTENT OVERLAY (item 6) ============ -->
+<div class="exit-overlay" id="exit-overlay">
+  <div class="exit-card">
+    <button class="exit-close" onclick="fecharExitOverlay()" aria-label="Fechar">×</button>
+    <div class="exit-icon">⏳</div>
+    <h3 class="exit-title">Espera!<br>Antes de <span>fechar</span>...</h3>
+    <p class="exit-text">Você acabou de fazer um currículo. Mas <strong>currículo é só 1 das 7 habilidades</strong> pra conseguir o primeiro emprego — comportamento, ferramentas e entrevista importam tanto quanto.</p>
+
+    <div class="exit-price">
+      <div class="exit-price-strike">de R$ 789</div>
+      <div class="exit-price-options">
+        <div class="exit-price-opt">
+          <div class="exit-price-amount">R$ 397</div>
+          <div class="exit-price-label">à vista</div>
+        </div>
+        <div class="exit-price-divider"></div>
+        <div class="exit-price-opt">
+          <div class="exit-price-amount">12x R$41,06</div>
+          <div class="exit-price-label">no cartão</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exit-actions">
+      <a href="https://pay.hotmart.com/Q100823141D" target="_blank" rel="noopener" class="exit-cta" onclick="trackEvent('InitiateCheckout', 'exit_intent'); fecharExitOverlay();">
+        Quero o curso completo →
+      </a>
+      <button class="exit-secondary" onclick="fecharExitOverlay()">Continuar sem o curso</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============ STATE ============
+let currentStep = 1;
+const totalSteps = 8;
+
+// ✅ GOOGLE APPS SCRIPT — captura de leads (ATIVO).
+// Envia só com consentimento marcado e sem dados do menor.
+const URL_APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbzHfAyKGwslwaNCOhlgmWyWWzw5yKBffzu5Si4KmkJTEdWgMdVlSqFmlcopsaw2RcXx/exec';
+
+// Marca se o lead já foi capturado na 1ª isca (antes do download).
+// Serve pra esconder a 2ª isca na etapa 8 quando já capturamos.
+let leadEnviado = false;
+// Link canônico do gerador para compartilhar (produção).
+const LINK_GERADOR = 'https://cursoprimeirachance.com.br/curriculo/';
+
+const habilidadesPredefinidas = [
+  'Pacote Office básico',
+  'Comunicação clara',
+  'Trabalho em equipe',
+  'Organização',
+  'Pontualidade',
+  'Atenção a detalhes',
+  'Boa redação',
+  'Proatividade',
+  'Responsabilidade',
+  'Aprendizado rápido',
+  'Resolução de problemas',
+  'Atendimento ao cliente'
+];
+
+let habilidadesSelecionadas = new Set();
+let habilidadesExtras = [];
+let cursos = [];
+let experiencias = [];
+
+// ============ INIT ============
+function init() {
+  renderHabilidades();
+  setupEmailValidation();
+  setupAreaListener();
+  updateProgress();
+}
+
+function renderHabilidades() {
+  const grid = document.getElementById('habilidades-grid');
+  grid.innerHTML = habilidadesPredefinidas.map(hab => `
+    <label style="display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1.5px solid var(--gray-200); border-radius: 8px; cursor: pointer; font-size: 13px; transition: all .15s;" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor=''">
+      <input type="checkbox" value="${hab}" onchange="toggleHabilidade(this)"> ${hab}
+    </label>
+  `).join('');
+}
+
+function toggleHabilidade(checkbox) {
+  if (checkbox.checked) habilidadesSelecionadas.add(checkbox.value);
+  else habilidadesSelecionadas.delete(checkbox.value);
+}
+
+function addHabilidadeExtra() {
+  const input = document.getElementById('habilidade-extra');
+  const valor = input.value.trim();
+  if (!valor) return;
+  habilidadesExtras.push(valor);
+  input.value = '';
+  renderHabilidadesExtras();
+}
+
+function renderHabilidadesExtras() {
+  const list = document.getElementById('habilidades-extras-list');
+  list.innerHTML = habilidadesExtras.map((hab, i) => `
+    <div class="dynamic-item" style="padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: 14px; color: var(--navy);">✓ ${hab}</span>
+      <button class="remove-btn" onclick="removeHabilidadeExtra(${i})">×</button>
+    </div>
+  `).join('');
+}
+
+function removeHabilidadeExtra(i) {
+  habilidadesExtras.splice(i, 1);
+  renderHabilidadesExtras();
+}
+
+// CURSOS
+function addCurso() {
+  cursos.push({ nome: '', instituicao: '', ano: '' });
+  renderCursos();
+}
+
+function removeCurso(i) {
+  cursos.splice(i, 1);
+  renderCursos();
+}
+
+function updateCurso(i, field, value) {
+  cursos[i][field] = value;
+}
+
+function renderCursos() {
+  const list = document.getElementById('cursos-list');
+  list.innerHTML = cursos.map((c, i) => `
+    <div class="dynamic-item">
+      <button class="remove-btn" onclick="removeCurso(${i})">×</button>
+      <div class="field" style="margin-bottom: 10px;">
+        <label>Nome do curso</label>
+        <input type="text" value="${c.nome}" oninput="updateCurso(${i}, 'nome', this.value)" placeholder="Ex: Inglês básico">
+      </div>
+      <div class="field-row" style="margin-bottom: 0;">
+        <div class="field" style="margin-bottom: 0;">
+          <label>Instituição</label>
+          <input type="text" value="${c.instituicao}" oninput="updateCurso(${i}, 'instituicao', this.value)" placeholder="Ex: Microcamp">
+        </div>
+        <div class="field" style="margin-bottom: 0;">
+          <label>Ano</label>
+          <input type="text" value="${c.ano}" oninput="updateCurso(${i}, 'ano', this.value)" placeholder="2025">
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// EXPERIÊNCIAS
+function addExperiencia() {
+  experiencias.push({ titulo: '', local: '', periodo: '', descricao: '' });
+  renderExperiencias();
+}
+
+function removeExperiencia(i) {
+  experiencias.splice(i, 1);
+  renderExperiencias();
+}
+
+function updateExperiencia(i, field, value) {
+  experiencias[i][field] = value;
+}
+
+function renderExperiencias() {
+  const list = document.getElementById('experiencias-list');
+  list.innerHTML = experiencias.map((e, i) => `
+    <div class="dynamic-item">
+      <button class="remove-btn" onclick="removeExperiencia(${i})">×</button>
+      <div class="field" style="margin-bottom: 10px;">
+        <label>Atividade ou cargo</label>
+        <input type="text" value="${e.titulo}" oninput="updateExperiencia(${i}, 'titulo', this.value)" placeholder="Ex: Auxiliar em mercadinho da família">
+      </div>
+      <div class="field-row" style="margin-bottom: 10px;">
+        <div class="field" style="margin-bottom: 0;">
+          <label>Local</label>
+          <input type="text" value="${e.local}" oninput="updateExperiencia(${i}, 'local', this.value)" placeholder="Ex: Joinville, SC">
+        </div>
+        <div class="field" style="margin-bottom: 0;">
+          <label>Período</label>
+          <input type="text" value="${e.periodo}" oninput="updateExperiencia(${i}, 'periodo', this.value)" placeholder="Ex: 2024-2025">
+        </div>
+      </div>
+      <div class="field" style="margin-bottom: 0;">
+        <label>O que você fez/aprendeu (1-2 frases)</label>
+        <textarea rows="2" oninput="updateExperiencia(${i}, 'descricao', this.value)" placeholder="Ex: Ajudei no atendimento, organização do estoque e controle de caixa.">${e.descricao}</textarea>
+      </div>
+    </div>
+  `).join('');
+}
+
+// EMAIL VALIDATION
+function setupEmailValidation() {
+  const input = document.getElementById('email');
+  const help = document.getElementById('email-help');
+
+  input.addEventListener('input', () => {
+    const email = input.value.toLowerCase().trim();
+    if (!email) {
+      input.classList.remove('warn');
+      help.classList.remove('warn', 'success');
+      help.textContent = 'Use um e-mail profissional (com seu nome real, sem números engraçados ou apelidos).';
+      return;
+    }
+
+    const palavrasErradas = [
+      'gatinha', 'gatinho', 'safadinha', 'safadinho', 'sapeca',
+      'animado', 'animadinha', 'principe', 'princesa', 'rainha',
+      'rei', 'drakinho', 'vampiro', 'gostosa', 'gostoso',
+      'sexy', 'love', 'amor', 'crush', 'fofa', 'fofo',
+      'bombadinho', 'lindinha', 'lindinho', 'cute', 'kawai',
+      'satan', 'demon', 'darknight', 'darkangel', 'gamergirl',
+      'gamerboy', 'noob', 'pro', 'killer', 'dragao'
+    ];
+
+    const temPalavraRuim = palavrasErradas.some(p => email.includes(p));
+    const temNumerosNoFinal = /\d{3,}@/.test(email);
+
+    if (temPalavraRuim || temNumerosNoFinal) {
+      input.classList.add('warn');
+      help.classList.add('warn');
+      help.classList.remove('success');
+      help.innerHTML = '⚠️ Esse e-mail pode parecer pouco profissional. <a href="https://cursoprimeirachance.com.br" target="_blank" rel="noopener" style="color: var(--amber-dark); font-weight: 600; text-decoration: underline;" onclick="trackEvent(\'ViewContent\', \'email_warning\')">No curso, descubra os 8 erros que custam vagas →</a>';
+    } else if (email.includes('@') && email.includes('.')) {
+      input.classList.remove('warn');
+      help.classList.remove('warn');
+      help.classList.add('success');
+      help.textContent = '✓ E-mail com aparência profissional.';
+    } else {
+      input.classList.remove('warn');
+      help.classList.remove('warn', 'success');
+      help.textContent = 'Use um e-mail profissional (com seu nome real, sem números engraçados ou apelidos).';
+    }
+  });
+}
+
+// AREA LISTENER
+function setupAreaListener() {
+  const areaInput = document.getElementById('area');
+  const objetivoInput = document.getElementById('objetivo');
+
+  areaInput.addEventListener('input', () => {
+    const area = areaInput.value.trim();
+    if (area) {
+      objetivoInput.value = `Busco oportunidade como jovem aprendiz na área ${area}, para iniciar minha trajetória profissional, aprender com profissionais experientes e contribuir com dedicação e vontade de crescer.`;
+    } else {
+      objetivoInput.value = '';
+    }
+  });
+}
+
+// NAVIGATION
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.step[data-step="${n}"]`).classList.add('active');
+  currentStep = n;
+  updateProgress();
+  updateStickyCTA();
+  // 2ª isca só aparece se o lead ainda não foi capturado antes do download
+  if (n === 8) {
+    const isca2 = document.getElementById('lead-optin-2');
+    if (isca2) isca2.style.display = leadEnviado ? 'none' : '';
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToStep(n) { showStep(n); }
+
+function nextStep() {
+  if (!validateStep(currentStep)) return;
+  if (currentStep < totalSteps) showStep(currentStep + 1);
+}
+
+function prevStep() {
+  if (currentStep > 1) showStep(currentStep - 1);
+}
+
+function validateStep(n) {
+  const requiredByStep = {
+    1: ['nome', 'idade', 'cidade', 'email', 'telefone'],
+    2: ['area'],
+    3: ['escola', 'serie'],
+    4: [],
+    5: [],
+    6: []
+  };
+
+  const required = requiredByStep[n] || [];
+  for (const id of required) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      el.focus();
+      el.style.borderColor = 'var(--coral)';
+      setTimeout(() => el.style.borderColor = '', 2000);
+      alert('Preencha todos os campos obrigatórios marcados com *');
+      return false;
+    }
+  }
+
+  if (n === 4) {
+    const total = habilidadesSelecionadas.size + habilidadesExtras.length;
+    if (total < 3) {
+      alert('Selecione pelo menos 3 habilidades antes de continuar.');
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function updateProgress() {
+  const pct = Math.round((currentStep / totalSteps) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+
+  const titulos = {
+    1: 'Dados pessoais',
+    2: 'Objetivo profissional',
+    3: 'Formação',
+    4: 'Habilidades',
+    5: 'Experiência',
+    6: 'Detalhes finais',
+    7: 'Pré-visualização',
+    8: 'Tudo pronto!'
+  };
+  document.getElementById('progress-text').textContent = `Etapa ${currentStep} de ${totalSteps} — ${titulos[currentStep]}`;
+
+  const dots = document.querySelectorAll('.step-dot');
+  dots.forEach((d, i) => {
+    d.classList.remove('active', 'done');
+    if (i + 1 < currentStep) d.classList.add('done');
+    if (i + 1 === currentStep) d.classList.add('active');
+  });
+}
+
+// ============ DATA COLLECTION ============
+function coletarDados() {
+  const dados = {
+    nome: document.getElementById('nome').value.trim(),
+    idade: document.getElementById('idade').value.trim(),
+    cidade: document.getElementById('cidade').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    telefone: document.getElementById('telefone').value.trim(),
+    area: document.getElementById('area').value.trim(),
+    objetivo: document.getElementById('objetivo').value.trim(),
+    escola: document.getElementById('escola').value.trim(),
+    serie: document.getElementById('serie').value.trim(),
+    conclusao: document.getElementById('conclusao').value.trim(),
+    ingles: document.getElementById('ingles').value.trim(),
+    observacoes: document.getElementById('observacoes').value.trim(),
+    disponibilidade: [],
+    habilidades: [...habilidadesSelecionadas, ...habilidadesExtras],
+    cursos: cursos.filter(c => c.nome && c.nome.trim()),
+    experiencias: experiencias.filter(e => e.titulo && e.titulo.trim())
+  };
+
+  if (document.getElementById('disp-manha').checked) dados.disponibilidade.push('manhã');
+  if (document.getElementById('disp-tarde').checked) dados.disponibilidade.push('tarde');
+  if (document.getElementById('disp-noite').checked) dados.disponibilidade.push('noite');
+
+  return dados;
+}
+
+function escapeHTML(text) {
+  if (!text) return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// ============ PREVIEW ============
+function goToPreview() {
+  const dados = coletarDados();
+  const html = renderPreviewHTML(dados);
+  document.getElementById('preview-page').innerHTML = html;
+  document.getElementById('error-msg').classList.remove('show');
+  showStep(7);
+}
+
+function renderPreviewHTML(d) {
+  let html = `
+    <div class="preview-header-block">
+      <div class="preview-name">${escapeHTML(d.nome.toUpperCase())}</div>
+      <div class="preview-role">Jovem Aprendiz — Área ${escapeHTML(d.area)}</div>
+      <div class="preview-contact">${escapeHTML(d.email)}  ·  ${escapeHTML(d.telefone)}  ·  ${escapeHTML(d.cidade)}</div>
+      ${d.idade ? `<div class="preview-age">${escapeHTML(d.idade)} anos</div>` : ''}
+    </div>
+    <div class="preview-body">
+  `;
+
+  // Objetivo
+  if (d.objetivo) {
+    html += `
+      <div class="preview-section">
+        <div class="preview-section-title">Objetivo Profissional</div>
+        <div class="preview-text">${escapeHTML(d.objetivo)}</div>
+      </div>
+    `;
+  }
+
+  // Formação
+  html += `
+    <div class="preview-section">
+      <div class="preview-section-title">Formação Acadêmica</div>
+      <div class="preview-item">
+        <div class="preview-item-title">${escapeHTML(d.escola)}</div>
+        <div class="preview-item-subtitle">${escapeHTML(d.serie)}${d.conclusao ? ' · Previsão de conclusão: ' + escapeHTML(d.conclusao) : ''}</div>
+      </div>
+  `;
+
+  d.cursos.forEach(c => {
+    const sub = [c.instituicao, c.ano].filter(Boolean).join(' · ');
+    html += `
+      <div class="preview-item">
+        <div class="preview-item-title">${escapeHTML(c.nome)}</div>
+        ${sub ? `<div class="preview-item-subtitle">${escapeHTML(sub)}</div>` : ''}
+      </div>
+    `;
+  });
+
+  if (d.ingles) {
+    html += `
+      <div class="preview-item">
+        <div class="preview-item-title">Inglês — Nível ${escapeHTML(d.ingles)}</div>
+      </div>
+    `;
+  }
+
+  html += `</div>`;
+
+  // Habilidades
+  if (d.habilidades.length > 0) {
+    html += `
+      <div class="preview-section">
+        <div class="preview-section-title">Habilidades</div>
+        <div class="preview-skills-grid">
+          ${d.habilidades.map(h => `<div class="preview-skill">${escapeHTML(h)}</div>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // Experiência
+  if (d.experiencias.length > 0) {
+    html += `
+      <div class="preview-section">
+        <div class="preview-section-title">Experiência</div>
+    `;
+    d.experiencias.forEach(e => {
+      const sub = [e.local, e.periodo].filter(Boolean).join(' · ');
+      html += `
+        <div class="preview-item">
+          <div class="preview-item-title">${escapeHTML(e.titulo)}</div>
+          ${sub ? `<div class="preview-item-subtitle">${escapeHTML(sub)}</div>` : ''}
+          ${e.descricao ? `<div class="preview-item-desc">${escapeHTML(e.descricao)}</div>` : ''}
+        </div>
+      `;
+    });
+    html += `</div>`;
+  }
+
+  // Informações Complementares
+  const temInfo = d.disponibilidade.length > 0 || d.observacoes;
+  if (temInfo) {
+    html += `
+      <div class="preview-section">
+        <div class="preview-section-title">Informações Complementares</div>
+        <div class="preview-bullets">
+    `;
+    if (d.disponibilidade.length > 0) {
+      const dispText = d.disponibilidade.length === 1
+        ? d.disponibilidade[0]
+        : d.disponibilidade.slice(0, -1).join(', ') + ' e ' + d.disponibilidade.slice(-1);
+      html += `<div class="preview-bullet">Disponibilidade para o período da ${escapeHTML(dispText)}</div>`;
+    }
+    if (d.observacoes) {
+      const obsLines = d.observacoes.split('\n').filter(l => l.trim());
+      obsLines.forEach(l => {
+        html += `<div class="preview-bullet">${escapeHTML(l.trim())}</div>`;
+      });
+    }
+    html += `</div></div>`;
+  }
+
+  html += `
+    <div class="preview-footer">Currículo gerado em cursoprimeirachance.com.br</div>
+  </div>
+  `;
+
+  return html;
+}
+
+// ============ PDF GENERATION ============
+function gerarPDF() {
+  // Disparar evento de Lead (item 8)
+  trackEvent('Lead', 'pdf_download_initiated');
+
+  // Mostrar loading de 10s ANTES de gerar (item 2)
+  mostrarLoading(() => {
+    gerarPDFInterno();
+  });
+}
+
+function gerarPDFInterno() {
+  const errorBox = document.getElementById('error-msg');
+  const errorDetail = document.getElementById('error-detail');
+  errorBox.classList.remove('show');
+
+  try {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      throw new Error('A biblioteca de PDF não carregou. Verifique sua conexão com a internet e atualize a página.');
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+    const NAVY = [15, 28, 46];
+    const AMBER = [245, 166, 35];
+    const GRAY_TEXT = [74, 72, 64];
+    const GRAY_LIGHT = [155, 152, 144];
+
+    const d = coletarDados();
+
+    // ===== HEADER =====
+    doc.setFillColor(...NAVY);
+    doc.rect(0, 0, 210, 38, 'F');
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(20);
+    doc.text(d.nome.toUpperCase(), 15, 15);
+
+    doc.setTextColor(...AMBER);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.text(`Jovem Aprendiz — Área ${d.area}`, 15, 22);
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(9);
+    doc.text(`${d.email}   ·   ${d.telefone}   ·   ${d.cidade}`, 15, 30);
+
+    if (d.idade) {
+      doc.setFontSize(8);
+      doc.setTextColor(...AMBER);
+      doc.text(`${d.idade} anos`, 15, 35);
+    }
+
+    let y = 50;
+
+    function sectionTitle(title) {
+      doc.setTextColor(...NAVY);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.text(title.toUpperCase(), 15, y);
+      doc.setDrawColor(...AMBER);
+      doc.setLineWidth(0.5);
+      doc.line(15, y + 1.5, 195, y + 1.5);
+      y += 7;
+    }
+
+    function paragraph(text, options) {
+      options = options || {};
+      const fontSize = options.fontSize || 10;
+      const color = options.color || GRAY_TEXT;
+      const style = options.style || 'normal';
+      doc.setFont('helvetica', style);
+      doc.setFontSize(fontSize);
+      doc.setTextColor(...color);
+      const split = doc.splitTextToSize(text, 180);
+      doc.text(split, 15, y);
+      y += split.length * (fontSize * 0.4) + 2;
+    }
+
+    function bullet(text, options) {
+      options = options || {};
+      const fontSize = options.fontSize || 10;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(fontSize);
+      doc.setTextColor(...AMBER);
+      doc.text('•', 18, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...GRAY_TEXT);
+      doc.text(text, 23, y);
+      y += fontSize * 0.45 + 1;
+    }
+
+    // ===== OBJETIVO =====
+    if (d.objetivo) {
+      sectionTitle('Objetivo Profissional');
+      paragraph(d.objetivo);
+      y += 3;
+    }
+
+    // ===== FORMAÇÃO =====
+    sectionTitle('Formação Acadêmica');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(...NAVY);
+    doc.text(d.escola, 15, y);
+    y += 4;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(...GRAY_LIGHT);
+    let formacaoText = d.serie;
+    if (d.conclusao) formacaoText += ` · Previsão de conclusão: ${d.conclusao}`;
+    doc.text(formacaoText, 15, y);
+    y += 5;
+
+    d.cursos.forEach(c => {
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(...NAVY);
+      doc.text(c.nome, 15, y);
+      y += 4;
+
+      const subtitulo = [c.instituicao, c.ano].filter(Boolean).join(' · ');
+      if (subtitulo) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        doc.setTextColor(...GRAY_LIGHT);
+        doc.text(subtitulo, 15, y);
+        y += 5;
+      }
+    });
+
+    if (d.ingles) {
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(...NAVY);
+      doc.text(`Inglês — Nível ${d.ingles}`, 15, y);
+      y += 5;
+    }
+
+    y += 2;
+
+    // ===== HABILIDADES =====
+    if (d.habilidades.length > 0) {
+      sectionTitle('Habilidades');
+      let yCol1 = y;
+      let yCol2 = y;
+
+      d.habilidades.forEach((h, i) => {
+        const xPos = (i % 2 === 0) ? 18 : 105;
+        const yPos = (i % 2 === 0) ? yCol1 : yCol2;
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.setTextColor(...AMBER);
+        doc.text('•', xPos, yPos);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(...GRAY_TEXT);
+        doc.text(h, xPos + 5, yPos);
+
+        if (i % 2 === 0) yCol1 += 5;
+        else yCol2 += 5;
+      });
+
+      y = Math.max(yCol1, yCol2) + 3;
+    }
+
+    // ===== EXPERIÊNCIA =====
+    if (d.experiencias.length > 0) {
+      sectionTitle('Experiência');
+
+      d.experiencias.forEach(e => {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.setTextColor(...NAVY);
+        doc.text(e.titulo, 15, y);
+        y += 4;
+
+        const subtitulo = [e.local, e.periodo].filter(Boolean).join(' · ');
+        if (subtitulo) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          doc.setTextColor(...GRAY_LIGHT);
+          doc.text(subtitulo, 15, y);
+          y += 4;
+        }
+
+        if (e.descricao) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          doc.setTextColor(...GRAY_TEXT);
+          const desc = doc.splitTextToSize(e.descricao, 180);
+          doc.text(desc, 15, y);
+          y += desc.length * 4 + 2;
+        }
+
+        y += 2;
+      });
+    }
+
+    // ===== INFORMAÇÕES COMPLEMENTARES =====
+    const temInfoComplementar = d.disponibilidade.length > 0 || d.observacoes;
+    if (temInfoComplementar) {
+      sectionTitle('Informações Complementares');
+
+      if (d.disponibilidade.length > 0) {
+        const dispText = d.disponibilidade.length === 1
+          ? d.disponibilidade[0]
+          : d.disponibilidade.slice(0, -1).join(', ') + ' e ' + d.disponibilidade.slice(-1);
+        bullet(`Disponibilidade para o período da ${dispText}`);
+      }
+
+      if (d.observacoes) {
+        const obsLines = d.observacoes.split('\n').filter(l => l.trim());
+        obsLines.forEach(l => bullet(l.trim()));
+      }
+    }
+
+    // ===== FOOTER =====
+    doc.setFont('helvetica', 'italic');
+    doc.setFontSize(7);
+    doc.setTextColor(...GRAY_LIGHT);
+    doc.text('Currículo gerado em cursoprimeirachance.com.br', 105, 290, { align: 'center' });
+
+    // ===== SAVE =====
+    const nomeArquivo = d.nome
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-zA-Z\s]/g, '')
+      .trim()
+      .split(/\s+/)
+      .slice(0, 3)
+      .join('_');
+
+    doc.save(`Curriculo_${nomeArquivo || 'Curriculo'}.pdf`);
+
+    // Trackear sucesso (item 8)
+    trackEvent('CompleteRegistration', 'pdf_downloaded');
+
+    // Captura de lead opcional — SÓ se o responsável marcou o consentimento.
+    // Chamado DEPOIS do save, sem await → nunca atrasa o download do PDF.
+    enviarLeadOpcional();
+
+    // Vai para a etapa 8 (oferta do curso) após pequeno delay
+    setTimeout(() => {
+      showStep(8);
+    }, 800);
+
+  } catch (err) {
+    console.error('Erro ao gerar PDF:', err);
+    errorBox.classList.add('show');
+    errorDetail.textContent = ' ' + (err.message || 'Tente atualizar a página e gerar de novo.');
+    alert('Não consegui gerar o PDF. Detalhes:\n\n' + (err.message || 'Erro desconhecido'));
+  }
+}
+
+// ============ TRACKING (item 8) ============
+function trackEvent(eventName, label) {
+  // GTM: empurra o evento pro dataLayer (GTM gerencia Pixel/GA via triggers)
+  if (window.dataLayer) {
+    window.dataLayer.push({ event: 'trackEvent', eventName: eventName,
+      eventLabel: label || 'unknown', eventCategory: 'curriculo_gerador' });
+  }
+  // Facebook Pixel
+  if (typeof fbq !== 'undefined') {
+    try {
+      fbq('track', eventName, { source: label || 'unknown' });
+    } catch (e) { /* silent fail */ }
+  }
+  // Google Analytics
+  if (typeof gtag !== 'undefined') {
+    try {
+      gtag('event', eventName.toLowerCase().replace(/\s+/g, '_'), {
+        event_category: 'curriculo_gerador',
+        event_label: label || 'unknown'
+      });
+    } catch (e) { /* silent fail */ }
+  }
+  console.log('[Track]', eventName, label);
+}
+
+// ============ STICKY CTA (item 12) ============
+function updateStickyCTA() {
+  const stickyCTA = document.getElementById('sticky-cta');
+  if (!stickyCTA) return;
+  // Mostrar entre etapas 2 e 6 (não distrair no início, não duplicar nas finais)
+  if (currentStep >= 2 && currentStep <= 6) {
+    stickyCTA.classList.add('show');
+    document.body.classList.add('has-sticky-cta');
+  } else {
+    stickyCTA.classList.remove('show');
+    document.body.classList.remove('has-sticky-cta');
+  }
+}
+
+// ============ EXIT INTENT (item 6) ============
+let exitIntentShown = false;
+let exitIntentEnabled = false;
+
+function setupExitIntent() {
+  // Só ativa após 30s no site (pra não disparar em quem chegou e saiu)
+  setTimeout(() => {
+    exitIntentEnabled = true;
+  }, 30000);
+
+  // Detecta movimento do mouse pra fora pelo topo (desktop)
+  document.addEventListener('mouseleave', (e) => {
+    if (!exitIntentEnabled || exitIntentShown) return;
+    if (currentStep === 8) return; // já viu a oferta
+    if (e.clientY <= 0) {
+      mostrarExitOverlay();
+    }
+  });
+}
+
+function mostrarExitOverlay() {
+  if (exitIntentShown) return;
+  exitIntentShown = true;
+  document.getElementById('exit-overlay').classList.add('show');
+  trackEvent('ViewContent', 'exit_intent_shown');
+}
+
+function fecharExitOverlay() {
+  document.getElementById('exit-overlay').classList.remove('show');
+}
+
+// ============ LOADING ANIMATION (item 2) ============
+const LOADING_DURATION_MS = 10000; // ⚙️ Ajuste aqui: 10000 = 10s, 7000 = 7s, etc
+const LOADING_MESSAGES = [
+  'Aplicando padrão profissional ao layout...',
+  '<strong>A escola ensina muito.</strong> Mas não te ensina como funciona o mundo do trabalho.',
+  '<strong>Currículo é só 1 parte.</strong> Comportamento, ferramentas e entrevista decidem a vaga.',
+  'Quase pronto! Preparando seu PDF...'
+];
+
+function mostrarLoading(callback) {
+  const overlay = document.getElementById('loading-overlay');
+  const messageEl = document.getElementById('loading-message');
+  const barEl = document.getElementById('loading-bar');
+  const pctEl = document.getElementById('loading-pct');
+
+  overlay.classList.add('show');
+
+  const start = Date.now();
+  const total = LOADING_DURATION_MS;
+  let currentMessageIndex = 0;
+  messageEl.innerHTML = LOADING_MESSAGES[0];
+
+  const interval = setInterval(() => {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / total, 1);
+    const pct = Math.round(progress * 100);
+
+    barEl.style.width = pct + '%';
+    pctEl.textContent = pct + '%';
+
+    // Trocar mensagem conforme avança
+    const newMessageIndex = Math.min(
+      Math.floor(progress * LOADING_MESSAGES.length),
+      LOADING_MESSAGES.length - 1
+    );
+    if (newMessageIndex !== currentMessageIndex) {
+      currentMessageIndex = newMessageIndex;
+      messageEl.style.opacity = '0';
+      setTimeout(() => {
+        messageEl.innerHTML = LOADING_MESSAGES[newMessageIndex];
+        messageEl.style.opacity = '1';
+      }, 200);
+    }
+
+    if (progress >= 1) {
+      clearInterval(interval);
+      // Pequeno delay pra suavizar transição
+      setTimeout(() => {
+        overlay.classList.remove('show');
+        callback();
+      }, 300);
+    }
+  }, 100);
+}
+
+// ============ CAPTURA DE LEAD (opcional, só com consentimento explícito) ============
+// Fire-and-forget: roda DEPOIS do download, sem await — não atrasa nem bloqueia o PDF.
+// Por se tratar de dado de menor, NÃO enviamos nome nem idade do(a) jovem:
+// apenas o WhatsApp do responsável (se informado) + a origem.
+function enviarLeadOpcional() {
+  try {
+    const consent = document.getElementById('lead-consent');
+    if (!consent || !consent.checked) return;            // sem consentimento → não envia nada
+
+    if (!URL_APPS_SCRIPT || URL_APPS_SCRIPT.includes('YOUR_SCRIPT_ID')) return; // sem URL → não envia
+
+    const respField = document.getElementById('resp-whatsapp');
+    const respWhats = respField ? respField.value.trim() : '';
+
+    leadEnviado = true;   // já capturamos na 1ª isca → 2ª isca não aparece na etapa 8
+
+    // Payload mínimo — nenhum dado do menor:
+    const lead = {
+      whatsapp: respWhats,         // WhatsApp do responsável — único dado pessoal enviado
+      origem: 'gerador-curriculo',
+      data: new Date().toISOString(),
+      userAgent: navigator.userAgent
+    };
+
+    fetch(URL_APPS_SCRIPT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(lead)
+    }).catch(() => {});            // dispara e esquece
+
+    trackEvent('Lead', 'gerador_curriculo_optin');
+  } catch (e) { /* nunca interrompe o fluxo do PDF */ }
+}
+
+// ============ AÇÕES DA OFERTA ============
+function visitarSite() {
+  window.open('https://cursoprimeirachance.com.br', '_blank');
+}
+
+// 2ª isca (pós-download): MESMA lógica de envio, disparada por clique.
+// Fire-and-forget, só com consentimento, sem dados do menor.
+function enviarLeadOpcional2() {
+  try {
+    const consent = document.getElementById('lead-consent-2');
+    if (!consent || !consent.checked) {
+      alert('Marque a caixa de consentimento para receber os links.');
+      return;
+    }
+    if (URL_APPS_SCRIPT && !URL_APPS_SCRIPT.includes('YOUR_SCRIPT_ID')) {
+      const respField = document.getElementById('resp-whatsapp-2');
+      const respWhats = respField ? respField.value.trim() : '';
+      const lead = {
+        whatsapp: respWhats,                    // único dado pessoal — do responsável
+        origem: 'gerador-curriculo-pos-download',
+        data: new Date().toISOString(),
+        userAgent: navigator.userAgent
+      };
+      fetch(URL_APPS_SCRIPT, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      }).catch(() => {});                       // dispara e esquece
+      trackEvent('Lead', 'gerador_curriculo_optin_pos');
+    }
+    leadEnviado = true;
+    // feedback: esconde o form, mostra confirmação
+    const ok = document.getElementById('lead-optin-2-ok');
+    if (ok) ok.style.display = 'block';
+    consent.disabled = true;
+    const btn = document.querySelector('#lead-optin-2 .btn-success');
+    if (btn) btn.style.display = 'none';
+  } catch (e) { /* nunca interrompe o fluxo */ }
+}
+
+// Compartilhar o gerador (mesma lógica do "Copiar link" da obrigado da mega-aula)
+function compartilharGerador() {
+  navigator.clipboard.writeText(LINK_GERADOR).then(() => {
+    alert('✓ Link copiado! Cola no grupo de pais que você está.');
+    trackEvent('Share', 'copy_link_gerador');
+  }).catch(() => {
+    prompt('Copia o link abaixo:', LINK_GERADOR);
+  });
+}
+
+// TODO: reativar quando tiver WhatsApp Business
+// Sem WhatsApp Business ainda: o botão de contato agora abre e-mail (mailto)
+// direto no HTML. Quando tiver WhatsApp Business, descomente a função abaixo
+// e troque o href do botão de volta para wa.me.
+// function abrirWhatsApp(e) {
+//   if (e) e.preventDefault();
+//   const numeroWhatsApp = '5547999998888';
+//   const mensagem = encodeURIComponent(
+//     'Olá! Acabei de usar a ferramenta de currículo do Primeira Chance e gostaria de receber dicas semanais de carreira para jovens. Pode me adicionar à lista?'
+//   );
+//   const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+//   trackEvent('Contact', 'whatsapp_request');
+//   window.open(url, '_blank');
+// }
+
+// ============ START ============
+init();
+setupExitIntent();
+</script>
+
+</body>
+</html>

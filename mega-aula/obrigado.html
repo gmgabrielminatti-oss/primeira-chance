@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição Confirmada — Mega Aula Primeira Chance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NNZXQPTD');</script>
+<!-- End Google Tag Manager -->
+<!-- Conversão de inscrição: GTM dispara Pixel/GA via trigger Custom Event 'CompleteRegistration' -->
+<script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'CompleteRegistration'});</script>
+<!-- Pixel (Meta) e Google Analytics agora são gerenciados pelo Google Tag Manager (snippet acima). -->
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --amber: #F5A623;
+    --amber-dark: #D4880A;
+    --amber-light: #FFF3D6;
+    --navy: #0F1C2E;
+    --navy-mid: #1E3048;
+    --coral: #FF5247;
+    --cream: #FAFAF5;
+    --green: #10B981;
+    --whatsapp: #25D366;
+    --whatsapp-dark: #128C7E;
+    --gray-100: #F4F3EE;
+    --gray-200: #E8E6DF;
+    --gray-400: #9B9890;
+    --gray-700: #4A4840;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .top-bar {
+    background: var(--navy);
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .top-bar a {
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+  }
+  .top-mark {
+    width: 32px; height: 32px;
+    background: var(--amber);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .top-mark svg { width: 16px; height: 16px; }
+  .top-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -.02em;
+  }
+
+  /* HERO SUCCESS */
+  .success-hero {
+    background: linear-gradient(135deg, #0F1C2E 0%, #1E3048 100%);
+    padding: 50px 5% 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .success-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: var(--amber);
+    border-radius: 50%;
+    opacity: .08;
+    filter: blur(40px);
+  }
+
+  .success-icon-wrap {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 18px;
+    background: var(--green);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    animation: bounce 0.8s ease;
+  }
+  @keyframes bounce {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  .success-icon-wrap svg {
+    width: 44px;
+    height: 44px;
+    color: white;
+  }
+
+  .success-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 5vw, 36px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -.025em;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .success-hero h1 span { color: var(--amber); }
+  .success-hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,.75);
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .success-hero p strong { color: white; }
+
+  /* CONTAINER */
+  .container { max-width: 720px; margin: 0 auto; padding: 30px 5% 60px; }
+
+  /* IMPORTANT STEPS */
+  .steps-card {
+    background: white;
+    border-radius: 16px;
+    padding: 26px 22px;
+    border: 1px solid var(--gray-200);
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(15,28,46,.06);
+  }
+  .steps-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--coral);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .steps-card h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+  }
+  .steps-card .lead {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+  .steps-card .lead strong { color: var(--coral); }
+
+  .step-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .step-row:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .step-circle {
+    width: 36px; height: 36px;
+    background: var(--amber);
+    color: var(--navy);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.55;
+  }
+  .step-desc strong { color: var(--navy); }
+  .step-desc code {
+    background: var(--amber-light);
+    color: var(--navy);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* CHANNEL CTA */
+  .channel-card {
+    background: var(--whatsapp);
+    border-radius: 16px;
+    padding: 24px 20px;
+    color: white;
+    text-align: center;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .channel-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.1);
+  }
+  .channel-icon {
+    width: 56px; height: 56px;
+    background: rgba(255,255,255,.2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    position: relative;
+  }
+  .channel-icon svg { width: 28px; height: 28px; color: white; }
+  .channel-card h3 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .channel-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    opacity: .95;
+    position: relative;
+  }
+  .channel-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--whatsapp-dark);
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .2s;
+    position: relative;
+  }
+  .channel-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+
+  /* BONUS TOOL CARD */
+  .tool-card {
+    background: linear-gradient(135deg, var(--amber-light) 0%, #FFFBEC 100%);
+    border-radius: 16px;
+    padding: 26px 22px;
+    border: 1px solid rgba(245,166,35,.25);
+    margin-bottom: 22px;
+  }
+  .tool-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--coral);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .tool-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+  }
+  .tool-card p {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .tool-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: var(--amber);
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .tool-cta:hover {
+    background: var(--navy-mid);
+    transform: translateY(-2px);
+  }
+
+  /* DATE REMINDER */
+  .date-reminder {
+    background: var(--navy);
+    color: white;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .date-reminder::before {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: .08;
+  }
+  .date-reminder-label {
+    font-size: 11px;
+    color: var(--amber);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .date-reminder-date {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    letter-spacing: -.02em;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .date-reminder-date span { color: var(--amber); }
+  .date-reminder-time {
+    font-size: 14px;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .add-calendar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.1);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.15);
+    transition: all .2s;
+    position: relative;
+    cursor: pointer;
+  }
+  .add-calendar:hover {
+    background: rgba(255,255,255,.15);
+  }
+
+  /* SHARE CARD */
+  .share-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px 20px;
+    border: 1px solid var(--gray-200);
+    text-align: center;
+  }
+  .share-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: -.02em;
+  }
+  .share-card p {
+    font-size: 13px;
+    color: var(--gray-700);
+    margin-bottom: 14px;
+  }
+  .share-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gray-100);
+    color: var(--navy);
+    padding: 10px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: var(--font-body);
+  }
+  .share-btn:hover {
+    background: var(--gray-200);
+  }
+  .share-btn.whatsapp {
+    background: var(--whatsapp);
+    color: white;
+  }
+  .share-btn.whatsapp:hover {
+    background: var(--whatsapp-dark);
+  }
+
+  /* USER GREETING */
+  .user-greet {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: var(--gray-100);
+    border-radius: 100px;
+    display: inline-block;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto 24px;
+  }
+  .user-greet strong { color: var(--amber-dark); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 24px 5%;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+  }
+  footer a { color: var(--amber); text-decoration: none; }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNZXQPTD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="top-bar">
+  <a href="https://cursoprimeirachance.com.br" target="_blank" rel="noopener">
+    <div class="top-mark">
+      <svg viewBox="0 0 18 18" fill="none">
+        <path d="M2 10L7 15L16 4" stroke="#0F1C2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="top-name">Primeira Chance</span>
+  </a>
+</div>
+
+<!-- HERO SUCCESS -->
+<section class="success-hero">
+  <div class="success-icon-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+  <h1>Inscrição confirmada<br><span>com sucesso!</span></h1>
+  <p id="welcome-msg"><strong>Sua vaga na Mega Aula está garantida.</strong> Agora siga os passos abaixo pra não perder nada.</p>
+</section>
+
+<div class="container">
+
+  <!-- DATE REMINDER -->
+  <div class="date-reminder">
+    <div class="date-reminder-label">📅 Marque na agenda</div>
+    <div class="date-reminder-date">24 de <span>JUNHO</span></div>
+    <div class="date-reminder-time">Quarta-feira · 20h às 20h50</div>
+    <a class="add-calendar" onclick="adicionarCalendario()">
+      <span>➕</span> Adicionar à agenda do celular
+    </a>
+  </div>
+
+  <!-- IMPORTANT STEPS -->
+  <div class="steps-card">
+    <span class="steps-label">✅ Tudo certo</span>
+    <h2>O que acontece agora</h2>
+    <p class="lead">Sua inscrição está <strong>confirmada</strong>. Veja como você vai receber a Mega Aula.</p>
+
+    <div class="step-row">
+      <div class="step-circle">1</div>
+      <div class="step-content">
+        <div class="step-title">Sua vaga está garantida</div>
+        <div class="step-desc">Pronto! Você está inscrito(a) na Mega Aula gratuita de <strong>24/06, às 20h</strong> (horário de Brasília). Não precisa fazer mais nada agora.</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-circle">2</div>
+      <div class="step-content">
+        <div class="step-title">O aviso da aula chega no seu WhatsApp</div>
+        <div class="step-desc">Vamos enviar o lembrete e o <strong>link de acesso</strong> da Mega Aula para o <strong>WhatsApp que você cadastrou</strong>, perto do horário da aula. Fique de olho nas mensagens no dia <strong>24/06</strong>.</div>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-circle">3</div>
+      <div class="step-content">
+        <div class="step-title">Ficou com alguma dúvida?</div>
+        <div class="step-desc">Fale com a gente por e-mail: <a href="mailto:cursoprimeirachance@gmail.com" style="color: #0F1C2E; font-weight: 600; text-decoration: underline;">cursoprimeirachance@gmail.com</a>. Respondemos o quanto antes.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO: reativar quando tiver WhatsApp Business -->
+  <!-- Card "Entre no Canal do WhatsApp" removido: sem Canal do WhatsApp por enquanto. -->
+  <!-- Para reativar, restaure este bloco e preencha LINK_CANAL_WHATSAPP no script. -->
+
+  <!-- BONUS TOOL -->
+  <div class="tool-card">
+    <span class="tool-flag">🎁 Bônus liberado</span>
+    <h3>Acesse agora a ferramenta de criação de currículo</h3>
+    <p>Como prometido, você já tem acesso à nossa ferramenta gratuita pro seu filho criar o primeiro currículo profissional em 5 minutos. Seu filho pode usar agora — antes mesmo da Mega Aula.</p>
+    <a href="https://cursoprimeirachance.com.br/curriculo/" target="_blank" rel="noopener" class="tool-cta" onclick="trackEvent('ViewContent', 'curriculo_tool_thanks')">
+      🚀 Usar a ferramenta agora →
+    </a>
+  </div>
+
+  <!-- SHARE -->
+  <div class="share-card">
+    <h3>💬 Conhece outros pais que precisam disso?</h3>
+    <p>Ajude outras famílias a preparar os filhos. Compartilhe a Mega Aula:</p>
+    <div class="share-buttons">
+      <!-- TODO: reativar quando tiver WhatsApp Business -->
+      <!-- Botão de compartilhar via WhatsApp removido por enquanto. -->
+      <button class="share-btn" onclick="copiarLink()">
+        🔗 Copiar link
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Primeira Chance · <a href="https://cursoprimeirachance.com.br" target="_blank">cursoprimeirachance.com.br</a></p>
+  <p style="margin-top: 6px;">Contato: <a href="mailto:cursoprimeirachance@gmail.com">cursoprimeirachance@gmail.com</a></p>
+</footer>
+
+<script>
+// ============ CONFIGURAÇÃO ============
+// TODO: reativar quando tiver WhatsApp Business
+// Sem WhatsApp Business ainda: constantes vazias. O Canal e os botões de
+// WhatsApp foram removidos do HTML; mantemos as constantes vazias p/ não
+// quebrar nenhuma referência.
+const NUMERO_WHATSAPP = '';
+const LINK_CANAL_WHATSAPP = '';
+const LINK_LANDING = 'https://cursoprimeirachance.com.br/mega-aula/';
+
+// Recuperar dados do usuário da URL
+const urlParams = new URLSearchParams(window.location.search);
+const nome = urlParams.get('nome');
+const filhoNome = urlParams.get('filhoNome');
+const whatsapp = urlParams.get('whatsapp');
+
+// Personalizar mensagem de boas-vindas
+if (nome) {
+  document.getElementById('welcome-msg').innerHTML = `<strong>${nome}, sua vaga na Mega Aula está garantida!</strong> Agora siga os passos abaixo pra não perder nada.`;
+}
+
+// TODO: reativar quando tiver WhatsApp Business
+// Os elementos do Canal (#channel-link) e o link de reabrir WhatsApp (#whatsapp-link)
+// foram removidos do HTML, então não há mais o que configurar aqui.
+// document.getElementById('channel-link').href = LINK_CANAL_WHATSAPP;
+// document.getElementById('whatsapp-link').href = `https://wa.me/${NUMERO_WHATSAPP}`;
+
+// ============ TRACKING ============
+function trackEvent(eventName, label) {
+  // GTM: empurra o evento pro dataLayer (GTM gerencia Pixel/GA via triggers)
+  if (window.dataLayer) {
+    window.dataLayer.push({ event: 'trackEvent', eventName: eventName,
+      eventLabel: label || 'unknown', eventCategory: 'thank_you_page' });
+  }
+  if (typeof fbq !== 'undefined') {
+    try { fbq('track', eventName, { source: label || 'unknown' }); } catch (e) {}
+  }
+  if (typeof gtag !== 'undefined') {
+    try {
+      gtag('event', eventName.toLowerCase().replace(/\s+/g, '_'), {
+        event_category: 'thank_you_page',
+        event_label: label || 'unknown'
+      });
+    } catch (e) {}
+  }
+}
+
+// ============ ADICIONAR AO CALENDÁRIO ============
+function adicionarCalendario() {
+  // Cria arquivo .ics pra Google Calendar / Apple Calendar / Outlook
+  const event = {
+    title: 'Mega Aula Gratuita: Currículo + Entrevista',
+    description: 'Mega Aula do Primeira Chance - Como preparar seu filho pro primeiro emprego. Acesso pelo link enviado no WhatsApp.',
+    location: 'Online (link enviado no WhatsApp)',
+    start: '20260624T230000Z', // 24/06 20h Brasília = 23h UTC
+    end: '20260624T235000Z'    // 24/06 20h50 Brasília = 23h50 UTC
+  };
+
+  const ics = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Primeira Chance//Mega Aula//PT
+BEGIN:VEVENT
+UID:mega-aula-2026-06-24@primeirachance.com.br
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
+DTSTART:${event.start}
+DTEND:${event.end}
+SUMMARY:${event.title}
+DESCRIPTION:${event.description}
+LOCATION:${event.location}
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Mega Aula Primeira Chance começa em 1 hora!
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+  const blob = new Blob([ics], { type: 'text/calendar' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'mega-aula-primeira-chance.ics';
+  a.click();
+  URL.revokeObjectURL(url);
+
+  trackEvent('AddToCalendar', 'thanks_page');
+}
+
+// ============ COMPARTILHAR ============
+// TODO: reativar quando tiver WhatsApp Business
+// Compartilhamento via WhatsApp desativado (botão removido do HTML).
+// Reative junto com o botão de compartilhar quando tiver WhatsApp Business.
+// function compartilharWhatsApp() {
+//   const msg = encodeURIComponent(
+//     `🎯 Vou assistir uma Mega Aula GRATUITA sobre como preparar adolescentes pro primeiro emprego!\n\n` +
+//     `📅 Quarta-feira 24/06 às 20h\n` +
+//     `💬 Acesso pelo WhatsApp\n\n` +
+//     `Inscrições aqui: ${LINK_LANDING}`
+//   );
+//   window.open(`https://wa.me/?text=${msg}`, '_blank');
+//   trackEvent('Share', 'whatsapp');
+// }
+
+function copiarLink() {
+  navigator.clipboard.writeText(LINK_LANDING).then(() => {
+    alert('✓ Link copiado! Cola no grupo de pais que você está.');
+    trackEvent('Share', 'copy_link');
+  }).catch(() => {
+    prompt('Copia o link abaixo:', LINK_LANDING);
+  });
+}
+</script>
+
+</body>
+</html>

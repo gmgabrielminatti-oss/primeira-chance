@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- pc-tracking · BLOCO 1 — Consent Mode v2 + GTM (GTM-NNZXQPTD) -->
+<!-- Consent Mode: começa NEGADO. Nada de marketing dispara até o "aceitar". -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  try {
+    if (localStorage.getItem('pc_consent') === 'granted') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+    }
+  } catch(e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NNZXQPTD');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Onde encontrar vagas de Jovem Aprendiz · Primeira Chance</title>
+<meta name="description" content="Os principais portais oficiais e gratuitos de Jovem Aprendiz, como se candidatar e como achar vagas perto de você. Guia do Primeira Chance.">
+
+<!-- ===== Open Graph / preview de link ===== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Primeira Chance">
+<meta property="og:title" content="Onde encontrar vagas de Jovem Aprendiz">
+<meta property="og:description" content="Portais oficiais e gratuitos + passo a passo pra seu filho conseguir o primeiro emprego. Veja como achar vagas perto de você.">
+<meta property="og:url" content="https://cursoprimeirachance.com.br/onde-encontrar-vagas/">
+<!-- TODO: gere uma imagem 1200x630 e suba neste caminho (ou ajuste a URL) -->
+<meta property="og:image" content="https://cursoprimeirachance.com.br/og-onde-vagas.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Onde encontrar vagas de Jovem Aprendiz">
+<meta name="twitter:description" content="Portais oficiais e gratuitos + passo a passo pro primeiro emprego do seu filho.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{--amber:#F5A623;--amber-d:#D4880A;--navy:#0F1C2E;--coral:#FF5247;--cream:#FAFAF5;--line:rgba(15,28,46,.1);--muted:rgba(15,28,46,.55);--display:'Space Grotesk',sans-serif;--body:'DM Sans',sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--cream);color:var(--navy);-webkit-font-smoothing:antialiased;line-height:1.5}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--amber-d);outline-offset:2px;border-radius:6px}
+  .app{max-width:560px;margin:0 auto;padding:0 18px 60px}
+  .intro{padding:34px 4px 8px}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+  .brand .mk{width:38px;height:38px;border-radius:11px;background:var(--navy);display:flex;align-items:center;justify-content:center}.brand .mk svg{width:21px;height:21px}.brand span{font-family:var(--display);font-weight:700;font-size:15px}
+  .intro h1{font-family:var(--display);font-weight:700;font-size:29px;line-height:1.13;letter-spacing:-.02em}.intro h1 em{font-style:normal;color:var(--amber-d)}
+  .intro p{color:var(--muted);font-size:15.5px;margin-top:12px}
+  .lawbar{background:#fff;border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;padding:13px 15px;margin-top:18px;font-size:13.5px;line-height:1.55}
+  .lawbar b{color:var(--navy)}
+  .sec{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:28px 4px 12px}
+  .prog{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:11px;display:flex;gap:14px;align-items:flex-start}
+  .prog .ic{width:46px;height:46px;border-radius:12px;background:rgba(245,166,35,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--display);font-weight:700;font-size:13px;color:var(--amber-d);text-align:center;line-height:1.1}
+  .prog .info{flex:1;min-width:0}
+  .prog h3{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em}
+  .prog p{font-size:14px;color:var(--muted);margin-top:4px}
+  .prog a{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13.5px;font-weight:700;color:var(--amber-d);text-decoration:none}
+  .prog a svg{width:14px;height:14px}
+  .near{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+  .near h3{font-family:var(--display);font-weight:700;font-size:17px}
+  .near p{font-size:13.5px;color:var(--muted);margin-top:5px}
+  .near .row{display:flex;gap:9px;margin-top:13px}
+  .near input{flex:1;min-width:0;font-family:var(--body);font-size:16px;padding:12px 13px;border-radius:11px;border:1.5px solid var(--line);background:var(--cream);color:var(--navy);outline:none}
+  .near input:focus{border-color:var(--amber)}
+  .near .go{flex-shrink:0;background:var(--navy);color:var(--cream);border:none;cursor:pointer;font-family:var(--display);font-weight:700;font-size:14px;padding:0 16px;border-radius:11px}
+  .near .links{display:none;flex-wrap:wrap;gap:8px;margin-top:13px}
+  .near .links.show{display:flex}
+  .near .links a{font-size:13px;font-weight:700;color:var(--amber-d);text-decoration:none;background:rgba(245,166,35,.12);padding:9px 13px;border-radius:10px}
+  .steps{background:var(--navy);border-radius:18px;padding:22px;color:var(--cream);margin-top:12px}
+  .steps h3{font-family:var(--display);font-weight:700;font-size:18px}
+  .steps ol{list-style:none;counter-reset:s;margin-top:14px;display:flex;flex-direction:column;gap:13px}
+  .steps li{counter-increment:s;display:flex;gap:13px;font-size:14.5px;color:rgba(250,250,245,.92)}
+  .steps li::before{content:counter(s);font-family:var(--display);font-weight:700;font-size:13px;color:var(--navy);background:var(--amber);width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .tip{background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.3);border-radius:12px;padding:13px 15px;font-size:13.5px;margin-top:16px;line-height:1.55}.tip b{color:var(--amber-d)}
+  .warn{background:rgba(255,82,71,.08);border:1px solid rgba(255,82,71,.32);border-radius:12px;padding:13px 15px;font-size:13.5px;margin-top:16px;line-height:1.55;display:flex;gap:11px;align-items:flex-start}
+  .warn svg{width:20px;height:20px;flex-shrink:0;margin-top:1px}.warn b{color:var(--coral)}
+  .note{font-size:13px;color:var(--muted);margin-top:14px;padding:0 4px;line-height:1.55}.note b{color:var(--navy)}
+  .faq{margin-top:11px;display:flex;flex-direction:column;gap:9px}
+  .faq .q{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden}
+  .faq .qh{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--display);font-weight:700;font-size:14.5px;color:var(--navy);padding:15px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq .qh .pl{font-size:20px;color:var(--amber-d);flex-shrink:0;transition:transform .2s}
+  .faq .q.open .qh .pl{transform:rotate(45deg)}
+  .faq .qa{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:14px;color:var(--muted);line-height:1.55}
+  .faq .qa div{padding:0 16px 15px}
+  .faq .q.open .qa{max-height:240px}
+  .faqnote{font-size:12px;color:var(--muted);margin-top:11px;padding:0 4px;line-height:1.5}
+  .capture{background:var(--navy);border-radius:20px;padding:24px 22px;margin-top:14px;color:var(--cream)}
+  .capture .tag{display:inline-block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);background:var(--amber);padding:5px 10px;border-radius:7px}
+  .capture h3{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.18;letter-spacing:-.01em;margin-top:13px}
+  .capture > #capForm > p{font-size:14px;color:rgba(250,250,245,.8);margin-top:9px}
+  .capture .bens{list-style:none;margin:15px 0 4px;display:flex;flex-direction:column;gap:8px}
+  .capture .bens li{font-size:13.5px;color:rgba(250,250,245,.92);display:flex;gap:9px;align-items:flex-start}
+  .capture .bens li svg{width:17px;height:17px;flex-shrink:0;margin-top:1px}
+  .capture label{display:block;font-size:12.5px;font-weight:700;color:rgba(250,250,245,.7);margin:14px 0 6px}
+  .capture input{width:100%;font-family:var(--body);font-size:16px;padding:13px 14px;border-radius:11px;border:1.5px solid rgba(250,250,245,.18);background:rgba(250,250,245,.06);color:var(--cream);outline:none}
+  .capture input::placeholder{color:rgba(250,250,245,.4)}
+  .capture input:focus{border-color:var(--amber)}
+  .capture input.err{border-color:var(--coral)}
+  .capture .errmsg{color:#ff9b91;font-size:12.5px;margin-top:6px;display:none}
+  .capture .errmsg.show{display:block}
+  .capture button.send{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--amber);color:var(--navy);border:none;cursor:pointer;font-family:var(--display);font-weight:700;font-size:16px;padding:15px;border-radius:12px;margin-top:18px;transition:opacity .2s}
+  .capture button.send:disabled{opacity:.6;cursor:default}
+  .capture button.send svg{width:18px;height:18px}
+  .capture .lgpd{font-size:11.5px;color:rgba(250,250,245,.5);margin-top:12px;line-height:1.5;text-align:center}
+  .capture .done{display:none}
+  .capture .done.show{display:block}
+  .capture .done .ck{width:54px;height:54px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;margin:2px auto 14px}
+  .capture .done .ck svg{width:28px;height:28px}
+  .capture .done h4{font-family:var(--display);font-weight:700;font-size:20px;text-align:center}
+  .capture .done .next{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:11px}
+  .capture .done .next li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:rgba(250,250,245,.92)}
+  .capture .done .next li .n{font-family:var(--display);font-weight:700;font-size:12px;color:var(--navy);background:var(--amber);width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .capture .done .act{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+  .capture .done .act a{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:14.5px;padding:13px;border-radius:11px}
+  .capture .done .act .primary{background:var(--amber);color:var(--navy)}
+  .capture .done .act .ghost{background:rgba(250,250,245,.08);color:var(--cream);border:1px solid rgba(250,250,245,.2)}
+  .capture .done .share{margin-top:16px;border-top:1px solid rgba(250,250,245,.14);padding-top:15px}
+  .capture .done .share p{font-size:13px;color:rgba(250,250,245,.75);text-align:center;margin-bottom:10px}
+  .capture .done .share .sbtns{display:flex;gap:9px}
+  .capture .done .share button{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(250,250,245,.08);color:var(--cream);border:1px solid rgba(250,250,245,.2);cursor:pointer;font-family:var(--body);font-weight:700;font-size:13px;padding:11px;border-radius:10px}
+  .capture .done .share button svg{width:15px;height:15px}
+  .cta a{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--amber);color:var(--navy);text-decoration:none;font-family:var(--display);font-weight:700;font-size:16px;padding:16px;border-radius:13px;margin-top:24px}
+  .foot{text-align:center;color:var(--muted);font-size:12.5px;margin-top:24px;line-height:1.6}.foot b{color:var(--navy)}
+</style>
+</head>
+<body>
+<!-- pc-tracking · BLOCO 2 — GTM noscript -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNZXQPTD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="app">
+  <div class="intro">
+    <div class="brand"><div class="mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 14l5-5 4 4 5-7" stroke="#F5A623" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="6" r="2" fill="#F5A623"/></svg></div><span>Primeira Chance</span></div>
+    <h1>Onde encontrar vagas de <em>Jovem Aprendiz</em></h1>
+    <p>A vaga existe — empresas grandes são obrigadas por lei a contratar. O segredo é procurar nos canais certos. Aqui estão os principais, todos gratuitos pra se cadastrar.</p>
+    <div class="lawbar">📜 <b>Por que as vagas existem o ano todo:</b> a Lei da Aprendizagem (10.097/2000) obriga empresas de médio e grande porte a manter uma cota de aprendizes no quadro. Não é favor — é obrigação legal delas contratar jovens.</div>
+  </div>
+
+  <div class="sec">Programas e portais oficiais</div>
+  <div id="progs"></div>
+
+  <div class="sec">Veja vagas perto de você</div>
+  <div class="near">
+    <h3>Busca pronta pra sua cidade</h3>
+    <p>Vaga de aprendiz é por região. Digite sua cidade que montamos buscas certeiras pra você.</p>
+    <div class="row">
+      <input type="text" id="cidade" placeholder="Ex: Joinville, SC" autocomplete="address-level2" aria-label="Sua cidade">
+      <button class="go" id="cidadeBtn" type="button">Buscar</button>
+    </div>
+    <div class="links" id="cidadeLinks"></div>
+  </div>
+
+  <div class="warn">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="#FF5247" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div><b>Cuidado com golpe:</b> Jovem Aprendiz é <b>sempre gratuito</b>. Nenhum programa oficial cobra taxa de inscrição, exame ou “reserva de vaga”. Se pedirem dinheiro ou um Pix pra liberar a vaga, é golpe — não pague e não envie documentos.</div>
+  </div>
+
+  <p class="note"><b>Sobre a idade:</b> a contratação formal como aprendiz começa aos 14 anos. Se seu filho ainda não chegou lá, vale começar a preparar desde já — cadastro, currículo e treino de entrevista — pra ele estar pronto no dia em que puder se candidatar.</p>
+
+  <div class="sec">Quer ajuda pra fazer o cadastro certo?</div>
+  <div class="capture" id="captura">
+    <div id="capForm">
+      <span class="tag">Grátis no WhatsApp</span>
+      <h3>O cadastro só funciona com um bom currículo. Te mando os dois.</h3>
+      <p>Deixe seu nome e WhatsApp que eu envio agora:</p>
+      <ul class="bens">
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>A ferramenta gratuita pra montar o currículo do seu filho em PDF</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Um checklist de como preencher o cadastro pra ser chamado mais</li>
+      </ul>
+
+      <label for="capNome">Seu nome</label>
+      <input type="text" id="capNome" placeholder="Como podemos te chamar" autocomplete="name">
+      <div class="errmsg" id="errNome" role="alert">Escreva seu nome.</div>
+
+      <label for="capWhats">Seu WhatsApp (com DDD)</label>
+      <input type="tel" id="capWhats" placeholder="(47) 90000-0000" autocomplete="tel" inputmode="numeric">
+      <div class="errmsg" id="errWhats" role="alert">Digite um WhatsApp válido com DDD.</div>
+
+      <button class="send" id="capBtn" type="button">Receber no WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0F1C2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="lgpd">Coletamos apenas seu nome e WhatsApp, para enviar os materiais e avisos do Primeira Chance. Você pode pedir a remoção a qualquer momento. Nenhum dado do seu filho é coletado aqui.</p>
+    </div>
+
+    <div class="done" id="capDone">
+      <div class="ck"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#0F1C2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h4 id="capDoneTitle">Prontinho!</h4>
+      <ol class="next" id="capNext">
+        <li><span class="n">1</span><span>Abrimos o WhatsApp pra você receber os materiais. Se não abriu, toque no botão abaixo.</span></li>
+        <li><span class="n">2</span><span>Salve nosso contato como “Primeira Chance” pra não perder os avisos de vaga.</span></li>
+        <li><span class="n">3</span><span>Use a ferramenta de currículo com seu filho — leva uns 5 minutos.</span></li>
+      </ol>
+      <div class="act">
+        <a class="primary" id="capDoneLink" href="#" target="_blank" rel="noopener">Abrir o WhatsApp</a>
+        <a class="ghost" id="capCanalLink" href="#" target="_blank" rel="noopener" style="display:none">Entrar no Canal do Primeira Chance</a>
+      </div>
+      <div class="share">
+        <p>Conhece outro pai ou mãe nessa fase? Compartilhe:</p>
+        <div class="sbtns">
+          <button id="shareWhats" type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+            WhatsApp
+          </button>
+          <button id="shareCopy" type="button">🔗 Copiar link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">Como se candidatar (passo a passo)</div>
+  <div class="steps">
+    <h3>Do cadastro à vaga</h3>
+    <ol>
+      <li>Crie um cadastro completo no portal escolhido (de preferência em mais de um).</li>
+      <li>Suba um currículo bem feito, em PDF — é o que aparece pro recrutador.</li>
+      <li>Mantenha telefone, e-mail e endereço sempre atualizados (é por aí que te chamam).</li>
+      <li>Candidate-se ativamente: aplique pra várias vagas, não espere te encontrarem.</li>
+      <li>Acompanhe o e-mail e o WhatsApp todos os dias — respostas costumam ser rápidas.</li>
+    </ol>
+  </div>
+
+  <div class="tip"><b>O erro que mais elimina:</b> perfil incompleto ou desatualizado. Quem preenche tudo e se candidata com frequência é chamado muito mais.</div>
+
+  <div class="sec">Dúvidas que todo pai tem</div>
+  <div class="faq" id="faq"></div>
+  <p class="faqnote">Regras gerais da Lei da Aprendizagem. Detalhes podem variar conforme o programa e a regra pode mudar — confirme sempre no portal oficial.</p>
+
+  <div class="cta"><a id="ctaLink" href="#captura">Quer chegar preparado na seleção? Comece aqui<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0F1C2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+
+  <p class="foot">Programas e links verificados em 2026. Os endereços oficiais podem mudar — confirme sempre se o site é o oficial da instituição antes de informar seus dados.<br><b>Primeira Chance</b> · preparo para o primeiro emprego</p>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+const CONFIG = {
+  CTA_URL: "https://cursoprimeirachance.com.br",
+  LINK_FERRAMENTA: "https://cursoprimeirachance.com.br/onde-encontrar-vagas/",
+  NUMERO_WHATSAPP: "",            // 55+DDD+número, só dígitos. Vazio = fallback p/ site
+  LINK_CANAL_WHATSAPP: "",        // ex: "https://whatsapp.com/channel/XXXX". Vazio = botão some
+  EMAIL_CONTATO: "cursoprimeirachance@gmail.com",
+  URL_GOOGLE_SHEETS: "https://script.google.com/macros/s/AKfycbzHfAyKGwslwaNCOhlgmWyWWzw5yKBffzu5Si4KmkJTEdWgMdVlSqFmlcopsaw2RcXx/exec",          // Web App do Apps Script. Vazio enquanto não configurar
+  ORIGEM: "ferramenta-onde-vagas"
+};
+
+/* ============================================================
+   TRACKING — TUDO passa pelo pcTrack() (definido no BLOCO 3).
+   Nunca chamamos fbq/ttq/gtag direto. Enquanto o BLOCO 3 não
+   estiver colado, pcTrack é undefined e nada dispara (ok).
+   ============================================================ */
+const SLUG = "ferramenta-onde-vagas";
+function pct(evento, meta){
+  if(typeof window.pcTrack === "function"){
+    try{ window.pcTrack(evento, Object.assign({ ferramenta: SLUG }, meta || {})); }catch(e){}
+  }
+}
+// dispara uma única vez
+let _iniciado=false, _concluido=false;
+function iniciarFerramenta(gatilho){
+  if(_iniciado) return; _iniciado=true;
+  pct("iniciou_ferramenta", { gatilho: gatilho });
+}
+function concluirFerramenta(via){
+  if(_concluido) return; _concluido=true;
+  pct("concluiu_ferramenta", { via: via });
+}
+
+/* ============ PORTAIS ============ */
+const PROGS=[
+  {ic:"CIEE",h:"CIEE",p:"O maior programa do país. Conecta empresas a jovens aprendizes em todos os estados. Cadastro gratuito.",url:"https://portal.ciee.org.br",k:"ciee"},
+  {ic:"Espro",h:"Espro",p:"Instituição tradicional de aprendizagem, com vagas e cursos de formação para o primeiro emprego.",url:"https://www.espro.org.br",k:"espro"},
+  {ic:"SENAI",h:"SENAI",p:"Aprendizagem com foco em áreas industriais e técnicas. Vagas + formação profissional.",url:"https://www.senai.br",k:"senai"},
+  {ic:"SENAC",h:"SENAC",p:"Aprendizagem voltada a comércio e serviços, com trilhas de capacitação.",url:"https://www.senac.br",k:"senac"},
+  {ic:"Emprega\nBrasil",h:"Emprega Brasil (SINE / gov.br)",p:"Portal oficial do governo (Sistema Nacional de Emprego). Cadastre o currículo e busque vagas — também pelo app Carteira de Trabalho Digital.",url:"https://servicos.mte.gov.br",k:"emprega_brasil"},
+  {ic:"Bancos\ne Correios",h:"Programas de grandes empresas",p:"Caixa, Banco do Brasil, Correios e muitas outras têm programa próprio de Jovem Aprendiz. Procure por “programa jovem aprendiz” no site oficial de cada empresa.",url:"",k:"grandes_empresas"}
+];
+const box=document.getElementById("progs");
+PROGS.forEach(pr=>{
+  const d=document.createElement("div");d.className="prog";
+  let link=pr.url?('<a href="'+pr.url+'" target="_blank" rel="noopener" data-k="'+pr.k+'">Acessar o site oficial <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>'):'';
+  d.innerHTML='<div class="ic" aria-hidden="true">'+pr.ic.replace(/\n/g,"<br>")+'</div><div class="info"><h3>'+pr.h+'</h3><p>'+pr.p+'</p>'+link+'</div>';
+  box.appendChild(d);
+});
+// clicar num portal oficial = começou a usar E chegou ao objetivo (achar onde aplicar)
+box.querySelectorAll("a[data-k]").forEach(a=>{
+  a.addEventListener("click",()=>{ iniciarFerramenta("portal"); concluirFerramenta("portal"); });
+});
+
+/* ============ BUSCAR PERTO DE VOCÊ ============ */
+const elCidade=document.getElementById("cidade");
+const elCidadeLinks=document.getElementById("cidadeLinks");
+function g(q){ return "https://www.google.com/search?q="+encodeURIComponent(q); }
+function buscarCidade(){
+  const c=elCidade.value.trim();
+  if(c.length<2){ elCidade.focus(); return; }
+  iniciarFerramenta("busca");
+  elCidadeLinks.innerHTML=
+    '<a href="'+g("vagas jovem aprendiz "+c)+'" target="_blank" rel="noopener">🔎 Vagas em '+c+'</a>'+
+    '<a href="'+g("CIEE "+c+" jovem aprendiz")+'" target="_blank" rel="noopener">CIEE '+c+'</a>'+
+    '<a href="'+g("SENAI SENAC "+c+" aprendiz vagas")+'" target="_blank" rel="noopener">SENAI/SENAC '+c+'</a>'+
+    '<a href="https://servicos.mte.gov.br" target="_blank" rel="noopener">Emprega Brasil</a>';
+  elCidadeLinks.classList.add("show");
+  concluirFerramenta("busca_cidade");
+}
+document.getElementById("cidadeBtn").addEventListener("click",buscarCidade);
+elCidade.addEventListener("keydown",e=>{ if(e.key==="Enter") buscarCidade(); });
+elCidade.addEventListener("focus",()=>iniciarFerramenta("busca"),{once:true});
+
+/* ============ FAQ ============ */
+const FAQ=[
+  {q:"A partir de que idade dá pra ser aprendiz?",a:"Dos 14 aos 24 anos (sem limite de idade para pessoas com deficiência). Antes dos 14, dá pra ir preparando currículo e cadastro."},
+  {q:"Precisa estar estudando?",a:"Sim. O aprendiz precisa estar matriculado e frequentando a escola, ou já ter concluído o ensino médio."},
+  {q:"Quanto o aprendiz ganha?",a:"No mínimo o salário mínimo por hora, proporcional à jornada (em geral 4 a 6 horas por dia). É contrato com carteira assinada, com FGTS, férias e 13º."},
+  {q:"Atrapalha os estudos?",a:"Não deve. A jornada é reduzida justamente pra caber junto com a escola, e a lei protege o tempo de estudo."},
+  {q:"É de graça pra se inscrever?",a:"Sim, sempre. Programa oficial não cobra nada. Se pedirem qualquer taxa, é golpe."}
+];
+const faqBox=document.getElementById("faq");
+FAQ.forEach((f,i)=>{
+  const d=document.createElement("div");d.className="q";
+  d.innerHTML='<button class="qh" type="button" aria-expanded="false">'+f.q+'<span class="pl" aria-hidden="true">+</span></button><div class="qa"><div>'+f.a+'</div></div>';
+  const btn=d.querySelector(".qh");
+  btn.addEventListener("click",()=>{
+    const open=d.classList.toggle("open");
+    btn.setAttribute("aria-expanded",open?"true":"false");
+    if(open) iniciarFerramenta("faq");
+  });
+  faqBox.appendChild(d);
+});
+
+/* ============ CTA rodapé → rola até o form ============ */
+document.getElementById("ctaLink").addEventListener("click",function(e){
+  e.preventDefault();
+  iniciarFerramenta("cta");
+  document.getElementById("captura").scrollIntoView({behavior:"smooth",block:"center"});
+  setTimeout(()=>{var n=document.getElementById("capNome"); if(n) n.focus();},500);
+});
+
+/* ============ CAPTURA DE LEAD (só nome + WhatsApp do responsável) ============ */
+const elNome=document.getElementById("capNome");
+const elWhats=document.getElementById("capWhats");
+const btn=document.getElementById("capBtn");
+
+// focar qualquer campo do form = começou a usar
+elNome.addEventListener("focus",()=>iniciarFerramenta("form"),{once:true});
+elWhats.addEventListener("focus",()=>iniciarFerramenta("form"),{once:true});
+
+elWhats.addEventListener("input",function(){
+  let v=this.value.replace(/\D/g,"").slice(0,11);
+  if(v.length>=7) this.value="("+v.slice(0,2)+") "+v.slice(2,7)+"-"+v.slice(7);
+  else if(v.length>=3) this.value="("+v.slice(0,2)+") "+v.slice(2);
+  else this.value=v;
+});
+[["capNome","errNome"],["capWhats","errWhats"]].forEach(([i,er])=>{
+  document.getElementById(i).addEventListener("input",function(){
+    this.classList.remove("err");document.getElementById(er).classList.remove("show");
+  });
+});
+function validar(){
+  let ok=true;
+  if(elNome.value.trim().length<2){elNome.classList.add("err");document.getElementById("errNome").classList.add("show");ok=false;}
+  const dig=elWhats.value.replace(/\D/g,"");
+  if(dig.length<10||dig.length>11){elWhats.classList.add("err");document.getElementById("errWhats").classList.add("show");ok=false;}
+  return ok;
+}
+function destinoFinal(nome){
+  if(CONFIG.NUMERO_WHATSAPP){
+    const msg=encodeURIComponent('Olá! Vim da ferramenta "Onde encontrar vagas".\nQuero a ferramenta de currículo e o checklist de cadastro.\n\nMeu nome: '+nome);
+    return "https://wa.me/"+CONFIG.NUMERO_WHATSAPP+"?text="+msg;
+  }
+  // FALLBACK: sem WhatsApp configurado, manda pro site do curso
+  // TODO: ao criar o WhatsApp Business, preencha CONFIG.NUMERO_WHATSAPP.
+  // Alternativa por e-mail: "mailto:"+CONFIG.EMAIL_CONTATO+"?subject=Quero%20os%20materiais"
+  return CONFIG.CTA_URL;
+}
+function destinoTipo(){ return CONFIG.NUMERO_WHATSAPP ? "whatsapp" : "curso"; }
+
+function mostrarObrigado(destino){
+  const link=document.getElementById("capDoneLink");
+  link.href=destino;
+  if(CONFIG.LINK_CANAL_WHATSAPP){
+    const cl=document.getElementById("capCanalLink");
+    cl.href=CONFIG.LINK_CANAL_WHATSAPP; cl.style.display="flex";
+  }
+  if(!CONFIG.NUMERO_WHATSAPP){
+    link.textContent="Conhecer o curso completo"; link.removeAttribute("target");
+    document.querySelector("#capNext li span:last-child").textContent="Recebemos seu contato. Em breve enviamos os materiais. Enquanto isso, conheça o curso abaixo.";
+  }
+  document.getElementById("capForm").style.display="none";
+  document.getElementById("capDone").classList.add("show");
+  document.getElementById("captura").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+btn.addEventListener("click",async function(){
+  if(!validar()) return;
+  btn.disabled=true;btn.textContent="Enviando...";
+  const nome=elNome.value.trim();
+  const dig=elWhats.value.replace(/\D/g,"");
+
+  const lead={nome:nome,whatsapp:dig,origem:CONFIG.ORIGEM,url:window.location.href,data:new Date().toISOString()};
+  // ----- localStorage (sempre) -----
+  try{ const arr=JSON.parse(localStorage.getItem("pc_leads")||"[]");arr.push(lead);localStorage.setItem("pc_leads",JSON.stringify(arr)); }catch(e){}
+  // ----- Google Sheets (se configurado) -----
+  if(CONFIG.URL_GOOGLE_SHEETS){
+    try{ await fetch(CONFIG.URL_GOOGLE_SHEETS,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(lead)}); }catch(e){}
+  }
+
+  // EVENTO lead — sem nenhum PII, só o slug
+  pct("lead", {});
+
+  const destino=destinoFinal(nome);
+  // EVENTO clique_cta — o lead é encaminhado pro destino (whatsapp ou curso)
+  pct("clique_cta", { destino: destinoTipo() });
+
+  mostrarObrigado(destino);
+  setTimeout(()=>{ window.open(destino,CONFIG.NUMERO_WHATSAPP?"_blank":"_self"); },350);
+});
+
+// cliques manuais nos CTAs do estado de "obrigado"
+document.getElementById("capDoneLink").addEventListener("click",()=>pct("clique_cta",{ destino: destinoTipo() }));
+document.getElementById("capCanalLink").addEventListener("click",()=>pct("clique_cta",{ destino: "whatsapp" }));
+
+/* ============ COMPARTILHAR (não é evento do funil; sem tracking) ============ */
+const shareUrl=CONFIG.LINK_FERRAMENTA||window.location.href;
+document.getElementById("shareWhats").addEventListener("click",function(){
+  const msg=encodeURIComponent("Achei útil pra quem tem filho buscando o primeiro emprego — onde encontrar vaga de Jovem Aprendiz:\n"+shareUrl);
+  window.open("https://wa.me/?text="+msg,"_blank");
+});
+document.getElementById("shareCopy").addEventListener("click",function(){
+  const self=this;
+  const done=function(){ self.textContent="✓ Link copiado!"; setTimeout(function(){self.textContent="🔗 Copiar link";},2000); };
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(shareUrl).then(done).catch(function(){prompt("Copie o link:",shareUrl);}); }
+  else prompt("Copie o link:",shareUrl);
+});
+
+})();
+</script>
+
+<!-- pc-tracking · BLOCO 3 — banner de consentimento + define window.pcTrack() -->
+<style>
+  #pc-cookie{position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:560px;margin:0 auto;
+    background:#0F1C2E;color:#FAFAF5;border-radius:16px;padding:18px 18px 16px;
+    box-shadow:0 18px 50px -20px rgba(0,0,0,.6);font-family:'DM Sans',system-ui,sans-serif;
+    transform:translateY(140%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+  #pc-cookie.show{transform:translateY(0)}
+  #pc-cookie p{font-size:13.5px;line-height:1.5;color:rgba(250,250,245,.82);margin:0 0 13px}
+  #pc-cookie a{color:#F5A623;text-decoration:underline}
+  #pc-cookie .row{display:flex;gap:9px}
+  #pc-cookie button{flex:1;font-family:'Space Grotesk','DM Sans',sans-serif;font-weight:700;font-size:14px;
+    padding:12px;border-radius:11px;border:none;cursor:pointer}
+  #pc-cookie .acc{background:#F5A623;color:#0F1C2E}
+  #pc-cookie .rej{background:transparent;color:#FAFAF5;border:1.5px solid rgba(250,250,245,.3)}
+  @media(prefers-reduced-motion:reduce){#pc-cookie{transition:none}}
+</style>
+<div id="pc-cookie" role="dialog" aria-label="Aviso de cookies">
+  <p>Usamos cookies para entender o uso do site e mostrar nossos conteúdos a quem se interessou.
+     Você decide. Veja a <!-- TODO: publicar /politica-de-privacidade --><a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
+  <div class="row">
+    <button class="rej" id="pc-cookie-rej" type="button">Recusar</button>
+    <button class="acc" id="pc-cookie-acc" type="button">Aceitar</button>
+  </div>
+</div>
+<script>
+(function(){
+  "use strict";
+  var banner = document.getElementById('pc-cookie');
+  var KEY = 'pc_consent';
+  function jaEscolheu(){ try { return !!localStorage.getItem(KEY); } catch(e){ return false; } }
+  if (!jaEscolheu()) { setTimeout(function(){ banner.classList.add('show'); }, 600); }
+  function fechar(){ banner.classList.remove('show'); }
+  document.getElementById('pc-cookie-acc').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'granted'); } catch(e){}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' });
+    }
+    dataLayer.push({ event: 'pc_consent_granted' });
+    fechar();
+  });
+  document.getElementById('pc-cookie-rej').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'denied'); } catch(e){}
+    dataLayer.push({ event: 'pc_consent_denied' });
+    fechar();
+  });
+  // Helper que as ferramentas chamam: pcTrack('lead', {ferramenta:'...'})
+  window.pcTrack = function(evento, params){
+    try { dataLayer.push(Object.assign({ event: 'pc_' + evento }, params || {})); } catch(e){}
+  };
+})();
+</script>
+<!-- FIM pc-tracking -->
+
+</body>
+</html>

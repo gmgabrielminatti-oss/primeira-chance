@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ===================== BLOCO 1 · vai no <head>, no topo ===================== -->
+
+<!-- 1a) Consent Mode: começa NEGADO. Nada de marketing dispara até o "aceitar". -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+
+  // Se o visitante JÁ aceitou numa visita anterior, restaura a escolha dele.
+  try {
+    if (localStorage.getItem('pc_consent') === 'granted') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+    }
+  } catch(e) {}
+</script>
+
+<!-- 1b) Carregador do Google Tag Manager -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NNZXQPTD');</script>
+<!-- End Google Tag Manager -->
+
+<title>Checklist do primeiro dia de trabalho · Primeira Chance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--amber:#F5A623;--amber-d:#D4880A;--navy:#0F1C2E;--coral:#FF5247;--cream:#FAFAF5;--wa:#25D366;--line:rgba(15,28,46,.1);--muted:rgba(15,28,46,.55);--display:'Space Grotesk',sans-serif;--body:'DM Sans',sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--cream);color:var(--navy);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .app{max-width:560px;margin:0 auto;padding:0 18px 60px}
+  .intro{padding:34px 4px 12px}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+  .brand .mk{width:38px;height:38px;border-radius:11px;background:var(--navy);display:flex;align-items:center;justify-content:center}.brand .mk svg{width:21px;height:21px}.brand span{font-family:var(--display);font-weight:700;font-size:15px}
+  .intro h1{font-family:var(--display);font-weight:700;font-size:29px;line-height:1.13;letter-spacing:-.02em}.intro h1 em{font-style:normal;color:var(--amber-d)}
+  .intro p{color:var(--muted);font-size:15.5px;margin-top:12px}
+  .meter{position:sticky;top:0;z-index:20;background:rgba(250,250,245,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);margin:16px -18px 0;padding:12px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:13px}
+  .bar{flex:1;height:9px;background:rgba(15,28,46,.1);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--amber);border-radius:6px;transition:width .4s cubic-bezier(.22,1,.36,1)}
+  .meter b{font-family:var(--display);font-weight:700;font-size:13px;white-space:nowrap;color:var(--muted)}.meter b s{text-decoration:none;color:var(--navy)}
+  .cat{margin-top:24px}.cat-h{display:flex;align-items:center;gap:10px;margin:0 4px 11px}
+  .cat-h .ic{width:30px;height:30px;border-radius:9px;background:rgba(245,166,35,.16);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .cat-h .ic svg{width:17px;height:17px;color:var(--amber-d)}
+  .cat-h h2{font-family:var(--display);font-weight:600;font-size:16.5px;letter-spacing:-.01em}
+  .cat.danger .ic{background:rgba(255,82,71,.14)}.cat.danger .ic svg{color:var(--coral)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden}
+  .item{display:flex;align-items:flex-start;gap:13px;padding:14px 15px;cursor:pointer;border-top:1px solid var(--line);-webkit-tap-highlight-color:transparent;transition:background .14s}
+  .item:first-child{border-top:none}.item:active{background:rgba(245,166,35,.06)}
+  .box{width:26px;height:26px;flex-shrink:0;border-radius:8px;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;transition:all .18s;margin-top:1px}
+  .box svg{width:15px;height:15px;opacity:0;transform:scale(.4);transition:all .2s}
+  .item.on .box{background:var(--amber);border-color:var(--amber)}.item.on .box svg{opacity:1;transform:scale(1)}
+  .cat.danger .item.on .box{background:var(--coral);border-color:var(--coral)}
+  .lab{flex:1;font-size:15px;font-weight:500;transition:color .18s}.item.on .lab{color:var(--muted)}
+
+  .result{margin-top:28px;background:var(--navy);border-radius:20px;padding:24px 22px;color:var(--cream);transition:box-shadow .4s,transform .4s}
+  .result.done{box-shadow:0 0 0 3px var(--amber),0 18px 40px -18px rgba(245,166,35,.6)}
+  .result h3{font-family:var(--display);font-weight:700;font-size:20px;display:flex;align-items:center;gap:9px}
+  .result p{color:rgba(250,250,245,.72);font-size:14.5px;margin-top:7px}
+  .badge{display:none;width:26px;height:26px;border-radius:50%;background:var(--amber);align-items:center;justify-content:center;flex-shrink:0}
+  .badge svg{width:15px;height:15px}.result.done .badge{display:inline-flex}
+  .cta a{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--amber);color:var(--navy);text-decoration:none;font-family:var(--display);font-weight:700;font-size:16px;padding:15px;border-radius:13px;margin-top:18px;transition:filter .15s}.cta a:hover{filter:brightness(1.05)}
+
+  /* Ações: recomeçar / imprimir */
+  .actions{display:flex;gap:10px;margin-top:14px}
+  .actions button{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--navy);font-family:var(--display);font-weight:600;font-size:14px;padding:13px;border-radius:13px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .14s,border-color .14s}
+  .actions button:hover{background:rgba(15,28,46,.03)}.actions button:active{background:rgba(245,166,35,.08)}
+  .actions button svg{width:16px;height:16px;color:var(--muted)}
+
+  /* Captura de lead (responsável) */
+  .signup{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 19px;transition:box-shadow .4s}
+  .signup.pulse{box-shadow:0 0 0 2px rgba(245,166,35,.55)}
+  .signup .sg-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .signup .wa{width:30px;height:30px;border-radius:9px;background:rgba(37,211,102,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}.signup .wa svg{width:18px;height:18px;color:var(--wa)}
+  .signup h4{font-family:var(--display);font-weight:700;font-size:16.5px;letter-spacing:-.01em}
+  .signup .sg-sub{color:var(--muted);font-size:13.5px;margin-bottom:14px}
+  .field{margin-bottom:11px}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:5px}
+  .field input{width:100%;font-family:var(--body);font-size:15px;padding:13px 14px;border:1.5px solid var(--line);border-radius:11px;background:var(--cream);color:var(--navy);transition:border-color .15s}
+  .field input:focus{outline:none;border-color:var(--amber)}
+  .sg-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;border:none;font-family:var(--display);font-weight:700;font-size:15.5px;padding:15px;border-radius:13px;cursor:pointer;margin-top:4px;transition:filter .15s}
+  .sg-btn:hover{filter:brightness(1.04)}.sg-btn:disabled{opacity:.7;cursor:default}
+  .sg-btn svg{width:18px;height:18px}
+  .sg-note{font-size:11.5px;color:var(--muted);margin-top:11px;line-height:1.55}
+  .sg-done{display:none;align-items:center;gap:11px;padding:4px 2px}
+  .sg-done .ok{width:34px;height:34px;border-radius:50%;background:rgba(37,211,102,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}.sg-done .ok svg{width:19px;height:19px;color:var(--wa)}
+  .sg-done b{font-family:var(--display);font-size:15px}.sg-done p{font-size:13px;color:var(--muted);margin-top:2px}
+  .signup.sent .sg-form{display:none}.signup.sent .sg-done{display:flex}
+
+  .foot{text-align:center;color:var(--muted);font-size:12.5px;margin-top:24px;line-height:1.6}.foot b{color:var(--navy)}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ============ IMPRESSÃO ============ */
+  @media print{
+    body{background:#fff}
+    .app{max-width:none;padding:0}
+    .meter,.result,.actions,.signup,.intro p{display:none!important}
+    .intro{padding:0 0 6px}
+    .cat,.card{break-inside:avoid;page-break-inside:avoid}
+    .card{box-shadow:none}
+    .item{cursor:default}
+    .lab{color:#000!important}
+    .box{border:2px solid #000!important;background:#fff!important;border-radius:5px}
+    .item.on .box{background:#fff!important}
+    .item.on .box svg{opacity:1!important;transform:none!important}
+    .box svg path{stroke:#000!important}
+    .cat.danger .item.on .box svg path{stroke:#000!important}
+    .foot{display:block!important;margin-top:18px}
+  }
+</style>
+</head>
+<body>
+<!-- ===================== BLOCO 2 · logo após <body> ===================== -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNZXQPTD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="app">
+  <div class="intro">
+    <div class="brand"><div class="mk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 14l5-5 4 4 5-7" stroke="#F5A623" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="6" r="2" fill="#F5A623"/></svg></div><span>Primeira Chance</span></div>
+    <h1>Checklist do <em>primeiro dia</em> de trabalho</h1>
+    <p>Seu filho conseguiu a vaga — agora é chegar bem no primeiro dia. Marque cada item conforme prepara. A primeira impressão começa aqui.</p>
+  </div>
+
+  <div class="meter">
+    <div class="bar"><i id="barFill"></i></div>
+    <b><s id="count">0</s> / <span id="total">0</span></b>
+  </div>
+
+  <div id="cats"></div>
+
+  <div class="result" id="result">
+    <h3 id="resTitle"><span class="badge"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-11" stroke="#0F1C2E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span id="resTitleText">Vá marcando o que já está pronto</span></h3>
+    <p id="resLead">Conforme prepara cada ponto, eu acompanho aqui embaixo.</p>
+    <div class="cta"><a id="ctaLink" href="https://cursoprimeirachance.com.br" target="_blank" rel="noopener">Prepare seu filho de A a Z no curso<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0F1C2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+
+  <div class="actions">
+    <button id="btnReset" type="button"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.3 2.6L3 8M3 4v4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Recomeçar</button>
+    <button id="btnPrint" type="button"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9V3h12v6M6 18H4a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2h-2M6 14h12v7H6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Imprimir / salvar</button>
+  </div>
+
+  <div class="signup" id="signup">
+    <div class="sg-form" id="sgForm">
+      <div class="sg-head">
+        <div class="wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26C2.16 6.45 6.6 2.02 12.05 2.02c2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88"/></svg></div>
+        <h4>Receba o checklist no WhatsApp</h4>
+      </div>
+      <p class="sg-sub">Tenha esse checklist na mão no dia — e dicas pro primeiro emprego do seu filho. Sem spam.</p>
+      <div class="field">
+        <label for="sgNome">Seu nome (responsável)</label>
+        <input type="text" id="sgNome" placeholder="Nome da mãe, do pai ou responsável" autocomplete="name" inputmode="text">
+      </div>
+      <div class="field">
+        <label for="sgZap">Seu WhatsApp</label>
+        <input type="tel" id="sgZap" placeholder="(00) 90000-0000" autocomplete="tel" inputmode="tel">
+      </div>
+      <button class="sg-btn" id="sgBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26C2.16 6.45 6.6 2.02 12.05 2.02c2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88"/></svg>
+        Receber no WhatsApp
+      </button>
+      <p class="sg-note">Coletamos apenas o nome e o WhatsApp do responsável — nunca dados do menor. Ao continuar, você concorda em receber mensagens do Primeira Chance e pode sair quando quiser.</p>
+    </div>
+    <div class="sg-done">
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-11" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><b>Tudo certo!</b><p>Recebemos seus dados — em breve entramos em contato.</p></div>
+    </div>
+  </div>
+
+  <p class="foot">Guia de orientação. Cada empresa tem suas regras — confirme com o RH o que levar no dia.<br><b>Primeira Chance</b> · preparo para o primeiro emprego</p>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+// ============ CONFIGURAÇÃO ============
+const CTA_URL = "https://cursoprimeirachance.com.br";
+
+// ⚠️ NÚMERO DO WHATSAPP BUSINESS — formato 55 + DDD + número, sem espaços/símbolos
+// Ex.: 5547999998888 (Joinville-SC, número 99999-8888)
+// TODO: reativar com número real do WhatsApp Business (vazio = fallback pro site)
+const NUMERO_WHATSAPP = "";
+
+// ⚠️ GOOGLE SHEETS — backup de leads (Web App do Apps Script)
+// Deixe assim e a captura ainda funciona (só não salva no Sheets até você plugar a URL)
+const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbzHfAyKGwslwaNCOhlgmWyWWzw5yKBffzu5Si4KmkJTEdWgMdVlSqFmlcopsaw2RcXx/exec";
+
+// Chaves de armazenamento local
+const KEY_STATE = "pc_checklist";       // progresso do checklist
+const KEY_LEADS = "pc_leads";           // backup local de leads (padrão do suite)
+const KEY_SENT  = "pc_checklist_lead";  // marca que este responsável já enviou
+
+const ICONS={
+  casa:'<path d="M3 11l9-7 9 7M5 10v10h14V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+  mala:'<rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="2" fill="none"/>',
+  porta:'<path d="M4 20h16M6 20V4h9v16M11 12h.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+  sol:'<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+  no:'<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 8l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+};
+const DATA=[
+  {t:"Na véspera",ic:"casa",items:["Confirmar o endereço e o horário de chegada","Separar os documentos pedidos pelo RH","Deixar a roupa pronta (um degrau acima do dia a dia)","Planejar o trajeto e o horário de sair","Dormir cedo pra acordar disposto"]},
+  {t:"O que levar",ic:"mala",items:["Documento de identidade","Documentos que o RH pediu","Algo pra anotar (caderno ou celular)","Uma garrafa de água e um lanche","Caneta"]},
+  {t:"Ao chegar",ic:"porta",items:["Chegar 10 a 15 minutos antes","Cumprimentar e se apresentar com simpatia","Silenciar o celular","Tentar guardar os nomes das pessoas"]},
+  {t:"Durante o dia",ic:"sol",items:["Anotar tudo que explicarem","Perguntar quando não entender (sem vergonha)","Observar como as pessoas se portam","Pedir ajuda em vez de fingir que sabe","Agradecer no fim do dia"]},
+  {t:"Evite logo de cara",ic:"no",danger:true,items:["Mexer no celular à toa","Chegar atrasado","Ficar calado o dia inteiro","Reclamar ou criticar","Sair antes do horário sem avisar"]}
+];
+
+let TOTAL=0;DATA.forEach(c=>TOTAL+=c.items.length);
+document.getElementById('total').textContent=TOTAL;
+
+const state=new Set();
+let pcIniciou=false, pcConcluiu=false;  // dispara cada evento uma vez por sessão
+const catsEl=document.getElementById('cats');
+const rows={};
+let idc=0;
+
+// ----- montar itens -----
+DATA.forEach(cat=>{
+  const w=document.createElement('div');w.className='cat'+(cat.danger?' danger':'');
+  w.innerHTML='<div class="cat-h"><div class="ic"><svg viewBox="0 0 24 24">'+ICONS[cat.ic]+'</svg></div><h2>'+cat.t+'</h2></div>';
+  const card=document.createElement('div');card.className='card';
+  cat.items.forEach(label=>{
+    const id='i'+(idc++);const row=document.createElement('div');row.className='item';row.dataset.id=id;
+    row.setAttribute('role','checkbox');row.setAttribute('aria-checked','false');row.tabIndex=0;
+    row.innerHTML='<div class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-11" stroke="#0F1C2E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="lab">'+label+'</div>';
+    rows[id]=row;
+    const t=()=>{
+      if(state.has(id)){state.delete(id);row.classList.remove('on');row.setAttribute('aria-checked','false');}
+      else{state.add(id);row.classList.add('on');row.setAttribute('aria-checked','true');}
+      if(!pcIniciou){pcIniciou=true;window.pcTrack&&window.pcTrack('iniciou_ferramenta',{ferramenta:'checklist-primeiro-dia'});}
+      saveState();render();
+    };
+    row.addEventListener('click',t);
+    row.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();t();}});
+    card.appendChild(row);
+  });
+  w.appendChild(card);catsEl.appendChild(w);
+});
+
+// ----- persistência do progresso -----
+function saveState(){
+  try{localStorage.setItem(KEY_STATE,JSON.stringify([...state]));}catch(e){}
+}
+function restoreState(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(KEY_STATE)||'[]');
+    saved.forEach(id=>{
+      if(rows[id]){state.add(id);rows[id].classList.add('on');rows[id].setAttribute('aria-checked','true');}
+    });
+  }catch(e){}
+}
+
+// ----- render do medidor + bloco de resultado -----
+const bar=document.querySelector('.bar');
+bar.setAttribute('role','progressbar');
+bar.setAttribute('aria-valuemin','0');
+bar.setAttribute('aria-valuemax',String(TOTAL));
+bar.setAttribute('aria-label','Itens preparados');
+
+const barFill=document.getElementById('barFill'),count=document.getElementById('count');
+const resultEl=document.getElementById('result');
+const resTitle=document.getElementById('resTitleText'),resLead=document.getElementById('resLead');
+
+function render(){
+  const n=state.size;
+  count.textContent=n;
+  barFill.style.width=(n/TOTAL*100)+'%';
+  bar.setAttribute('aria-valuenow',String(n));
+  if(n===0){
+    resultEl.classList.remove('done');
+    resTitle.textContent="Vá marcando o que já está pronto";
+    resLead.textContent="Conforme prepara cada ponto, eu acompanho aqui embaixo.";
+  }else if(n<TOTAL){
+    resultEl.classList.remove('done');
+    resTitle.textContent="Faltam "+(TOTAL-n);
+    resLead.textContent="Continue. Os primeiros dias definem como a equipe vai enxergar seu filho.";
+  }else{
+    resultEl.classList.add('done');
+    if(!pcConcluiu){pcConcluiu=true;window.pcTrack&&window.pcTrack('concluiu_ferramenta',{ferramenta:'checklist-primeiro-dia',progresso:n+'/'+TOTAL});}
+    resTitle.textContent="Tudo pronto pro primeiro dia";
+    resLead.textContent="Ele vai chegar seguro e preparado. Agora é só ser pontual, atento e simpático — o resto vem com o tempo.";
+    // realça a captura uma vez ao concluir
+    if(!signupEl.classList.contains('sent')){signupEl.classList.add('pulse');setTimeout(()=>signupEl.classList.remove('pulse'),1600);}
+  }
+}
+
+// ----- recomeçar -----
+document.getElementById('btnReset').addEventListener('click',()=>{
+  if(state.size>0 && !confirm('Limpar todas as marcações e recomeçar?'))return;
+  state.clear();
+  Object.values(rows).forEach(r=>{r.classList.remove('on');r.setAttribute('aria-checked','false');});
+  saveState();render();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+// ----- imprimir / salvar -----
+document.getElementById('btnPrint').addEventListener('click',()=>window.print());
+
+// ============ CAPTURA DE LEAD (responsável) ============
+const signupEl=document.getElementById('signup');
+const sgNome=document.getElementById('sgNome');
+const sgZap=document.getElementById('sgZap');
+const sgBtn=document.getElementById('sgBtn');
+
+function markSent(){signupEl.classList.add('sent');}
+if(localStorage.getItem(KEY_SENT)==='1')markSent();
+
+async function enviarLead(){
+  const nome=sgNome.value.trim();
+  const whatsapp=sgZap.value.trim();
+  if(!nome||!whatsapp){alert('Preencha seu nome e seu WhatsApp.');return;}
+  if(whatsapp.replace(/\D/g,'').length<10){alert('Confira o número de WhatsApp com DDD.');return;}
+
+  sgBtn.disabled=true;
+  const orig=sgBtn.innerHTML;
+  sgBtn.innerHTML='Salvando…';
+
+  const lead={
+    ferramenta:"checklist-primeiro-dia",
+    nome,
+    whatsapp,
+    progresso:state.size+"/"+TOTAL,
+    data:new Date().toISOString(),
+    origem:window.location.href,
+    userAgent:navigator.userAgent
+  };
+
+  // BACKUP 1: localStorage (sempre)
+  try{
+    const leads=JSON.parse(localStorage.getItem(KEY_LEADS)||'[]');
+    leads.push(lead);localStorage.setItem(KEY_LEADS,JSON.stringify(leads));
+  }catch(e){}
+
+  // BACKUP 2: Google Sheets (se configurado) — no-cors, não lê resposta mas os dados chegam
+  if(URL_GOOGLE_SHEETS && !URL_GOOGLE_SHEETS.includes('YOUR_SCRIPT_ID')){
+    try{
+      await fetch(URL_GOOGLE_SHEETS,{
+        method:'POST',mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(lead)
+      });
+    }catch(e){}
+  }
+
+  localStorage.setItem(KEY_SENT,'1');
+  window.pcTrack&&window.pcTrack('lead',{ferramenta:'checklist-primeiro-dia',progresso:state.size+'/'+TOTAL});
+
+  // TODO: reativar com número real do WhatsApp Business
+  // Sem WhatsApp Business ainda: o lead já foi salvo acima; aqui mandamos o
+  // responsável pro site do curso (fallback). Quando tiver o número real,
+  // preencher NUMERO_WHATSAPP que o redirect wa.me volta a valer.
+  const msg=encodeURIComponent(
+    "Olá! Preparei o checklist do primeiro dia de trabalho do meu filho no Primeira Chance.\n\n"+
+    "Quero receber o checklist e as dicas pro primeiro emprego.\n"+
+    "Meu nome: "+nome
+  );
+  sgBtn.innerHTML='Tudo certo!';
+  setTimeout(()=>{
+    if(NUMERO_WHATSAPP){
+      window.open("https://wa.me/"+NUMERO_WHATSAPP+"?text="+msg,'_blank');
+    }else{
+      window.open(CTA_URL,'_blank');   // fallback: site do curso
+    }
+    sgBtn.disabled=false;sgBtn.innerHTML=orig;
+    markSent();
+  },500);
+}
+sgBtn.addEventListener('click',enviarLead);
+sgZap.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();enviarLead();}});
+
+// ============ START ============
+document.getElementById('ctaLink').href=CTA_URL;
+document.getElementById('ctaLink').addEventListener('click',()=>{window.pcTrack&&window.pcTrack('clique_cta',{ferramenta:'checklist-primeiro-dia',destino:'curso'});});
+restoreState();
+render();
+})();
+</script>
+<!-- ===================== BLOCO 3 · banner de consentimento + helper ===================== -->
+<style>
+  #pc-cookie{position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:560px;margin:0 auto;
+    background:#0F1C2E;color:#FAFAF5;border-radius:16px;padding:18px 18px 16px;
+    box-shadow:0 18px 50px -20px rgba(0,0,0,.6);font-family:'DM Sans',system-ui,sans-serif;
+    transform:translateY(140%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+  #pc-cookie.show{transform:translateY(0)}
+  #pc-cookie p{font-size:13.5px;line-height:1.5;color:rgba(250,250,245,.82);margin:0 0 13px}
+  #pc-cookie a{color:#F5A623;text-decoration:underline}
+  #pc-cookie .row{display:flex;gap:9px}
+  #pc-cookie button{flex:1;font-family:'Space Grotesk','DM Sans',sans-serif;font-weight:700;font-size:14px;
+    padding:12px;border-radius:11px;border:none;cursor:pointer}
+  #pc-cookie .acc{background:#F5A623;color:#0F1C2E}
+  #pc-cookie .rej{background:transparent;color:#FAFAF5;border:1.5px solid rgba(250,250,245,.3)}
+  @media(prefers-reduced-motion:reduce){#pc-cookie{transition:none}}
+</style>
+
+<div id="pc-cookie" role="dialog" aria-label="Aviso de cookies">
+  <p>Usamos cookies para entender o uso do site e mostrar nossos conteúdos a quem se interessou.
+     Você decide. Veja a <!-- TODO: publicar /politica-de-privacidade --><a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
+  <div class="row">
+    <button class="rej" id="pc-cookie-rej" type="button">Recusar</button>
+    <button class="acc" id="pc-cookie-acc" type="button">Aceitar</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var banner = document.getElementById('pc-cookie');
+  var KEY = 'pc_consent';
+
+  // Só mostra o banner se a pessoa ainda não escolheu
+  function jaEscolheu(){ try { return !!localStorage.getItem(KEY); } catch(e){ return false; } }
+  if (!jaEscolheu()) {
+    setTimeout(function(){ banner.classList.add('show'); }, 600);
+  }
+
+  function fechar(){ banner.classList.remove('show'); }
+
+  document.getElementById('pc-cookie-acc').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'granted'); } catch(e){}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted', ad_user_data: 'granted',
+        ad_personalization: 'granted', analytics_storage: 'granted'
+      });
+    }
+    dataLayer.push({ event: 'pc_consent_granted' });
+    fechar();
+  });
+
+  document.getElementById('pc-cookie-rej').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'denied'); } catch(e){}
+    dataLayer.push({ event: 'pc_consent_denied' });
+    fechar();
+  });
+
+  // ---- Helper que as ferramentas vão chamar para eventos ----
+  // Uso:  pcTrack('lead', { ferramenta: 'checklist-primeiro-dia' });
+  //       pcTrack('iniciou_ferramenta', { ferramenta: 'simulador' });
+  // O evento sempre vai pro dataLayer; quem decide disparar pro Meta/TikTok/Google
+  // é o GTM, respeitando o consentimento configurado lá.
+  window.pcTrack = function(evento, params){
+    try { dataLayer.push(Object.assign({ event: 'pc_' + evento }, params || {})); } catch(e){}
+  };
+})();
+</script>
+<!-- ===================== FIM DO BLOCO DE RASTREAMENTO ===================== -->
+
+</body>
+</html>
