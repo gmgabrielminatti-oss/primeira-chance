@@ -580,6 +580,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .price-btn-solid:hover { background: #0a1220; }
 
+  /* ===== Ferramentas gratuitas — seção de apoio (discreta, após a oferta) ===== */
+  .tools-free { background: var(--gray-100); padding: 64px 5%; }
+  .tools-free .section-inner { max-width: 760px; }
+  .tools-free .section-label { text-align: center; color: var(--gray-400); }
+  .tools-free h2 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .tools-free-sub {
+    text-align: center; font-size: 14px; color: var(--gray-700);
+    max-width: 470px; margin: 0 auto 24px; line-height: 1.55;
+  }
+  .tools-free-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .tool-card {
+    display: flex; flex-direction: column; gap: 5px;
+    padding: 15px 16px; border: 1px solid var(--gray-200);
+    border-radius: 12px; background: var(--white);
+    text-decoration: none; transition: border-color .15s, transform .15s;
+  }
+  .tool-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+  .tool-card-ic { font-size: 19px; line-height: 1; }
+  .tool-card-t {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 14px; color: var(--navy); line-height: 1.25;
+  }
+  .tool-card-d { font-size: 12.5px; color: var(--gray-700); line-height: 1.45; }
+  @media (max-width: 560px) { .tools-free-grid { grid-template-columns: 1fr; } }
+
   .price-guarantee {
     text-align: center;
     margin-top: 36px;
@@ -1082,6 +1115,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="price-guarantee" style="margin-top:0;">🔒 Garantia de 7 dias — se não gostar, devolvemos 100% do seu dinheiro.</p>
   </div>
 </section>
+  </div>
+</section>
+
+<!-- Ferramentas gratuitas (bônus de apoio — discreto, depois da oferta) -->
+<section class="section tools-free">
+  <div class="section-inner fade-in">
+    <p class="section-label">Bônus de apoio</p>
+    <h2>Ferramentas gratuitas pra começar</h2>
+    <p class="tools-free-sub">Recursos gratuitos pra ajudar seu filho a dar o primeiro passo.</p>
+    <div class="tools-free-grid">
+      <a class="tool-card" href="/curriculo/">
+        <span class="tool-card-ic">📄</span>
+        <span class="tool-card-t">Gerador de Currículo</span>
+        <span class="tool-card-d">Monte um currículo profissional em minutos.</span>
+      </a>
+      <a class="tool-card" href="/checklist/">
+        <span class="tool-card-ic">✅</span>
+        <span class="tool-card-t">Checklist do Primeiro Dia</span>
+        <span class="tool-card-d">O que levar e como se preparar pra estreia.</span>
+      </a>
+      <a class="tool-card" href="/email/">
+        <span class="tool-card-ic">✉️</span>
+        <span class="tool-card-t">Gerador de E-mail de Candidatura</span>
+        <span class="tool-card-d">O e-mail que o recrutador lê antes do currículo.</span>
+      </a>
+      <a class="tool-card" href="/vagas/">
+        <span class="tool-card-ic">🔎</span>
+        <span class="tool-card-t">Onde Encontrar Vagas</span>
+        <span class="tool-card-d">Os portais certos pra achar vaga de aprendiz.</span>
+      </a>
+    </div>
   </div>
 </section>
 
