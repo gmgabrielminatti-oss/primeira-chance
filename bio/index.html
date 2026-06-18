@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- pc-tracking · BLOCO 1 — Consent Mode v2 + GTM (GTM-NNZXQPTD) -->
+<!-- Consent Mode: começa NEGADO. Nada de marketing dispara até o "aceitar". -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  try {
+    if (localStorage.getItem('pc_consent') === 'granted') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+    }
+  } catch(e) {}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NNZXQPTD');</script>
+<!-- End Google Tag Manager -->
+
+<title>Primeira Chance — Links</title>
+<meta name="description" content="Mega Aula gratuita, gerador de currículo, gerador de e-mail de candidatura e o curso completo. Tudo do Primeira Chance num lugar só.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber: #F5A623;
+    --amber-dark: #D4880A;
+    --navy: #0F1C2E;
+    --navy-mid: #1E3048;
+    --cream: #FAFAF5;
+    --white: #FFFFFF;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--body);
+    background: linear-gradient(180deg, #0F1C2E 0%, #16263B 100%);
+    color: var(--white);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 40px 20px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* Topo */
+  .head { text-align: center; margin-bottom: 8px; }
+  .mk {
+    width: 56px; height: 56px; border-radius: 16px; background: var(--amber);
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  }
+  .mk svg { width: 30px; height: 30px; }
+  .head h1 {
+    font-family: var(--display); font-weight: 700; font-size: 24px;
+    letter-spacing: -.02em; color: var(--white);
+  }
+  .head p {
+    font-size: 14px; color: rgba(255,255,255,.66); margin-top: 6px;
+  }
+
+  /* Card base */
+  .card {
+    display: block; text-decoration: none; border-radius: 16px;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .card:active { transform: scale(.985); }
+
+  /* DESTAQUE — Mega Aula */
+  .hero-card {
+    background: var(--amber);
+    color: var(--navy);
+    padding: 22px 20px;
+    box-shadow: 0 14px 34px -14px rgba(245,166,35,.6);
+  }
+  .hero-card:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(245,166,35,.7); }
+  .hero-badge {
+    display: inline-block; font-family: var(--display); font-weight: 700;
+    font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    background: var(--navy); color: var(--amber);
+    padding: 4px 10px; border-radius: 100px; margin-bottom: 10px;
+  }
+  .hero-card h2 {
+    font-family: var(--display); font-weight: 700; font-size: 21px;
+    letter-spacing: -.02em; line-height: 1.15;
+  }
+  .hero-card .date { font-weight: 700; font-size: 14px; margin-top: 8px; }
+  .hero-card .sub { font-size: 13.5px; color: rgba(15,28,46,.72); margin-top: 3px; }
+  .hero-card .go { font-family: var(--display); font-weight: 700; font-size: 14px; margin-top: 12px; }
+
+  /* Dois cards médios */
+  .duo { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .tool {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.14);
+    padding: 18px;
+  }
+  .tool:hover { transform: translateY(-2px); border-color: var(--amber); background: rgba(255,255,255,.08); }
+  .tool .ic { font-size: 22px; }
+  .tool h3 {
+    font-family: var(--display); font-weight: 600; font-size: 15.5px;
+    color: var(--white); margin: 8px 0 3px; line-height: 1.2;
+  }
+  .tool p { font-size: 12.5px; color: rgba(255,255,255,.6); }
+
+  /* Link secundário — curso */
+  .secondary {
+    display: block; text-align: center; text-decoration: none;
+    border: 1px solid rgba(255,255,255,.2); border-radius: 14px;
+    padding: 15px 16px; margin-top: 4px;
+    font-size: 14px; font-weight: 600; color: rgba(255,255,255,.85);
+    transition: border-color .15s, color .15s;
+  }
+  .secondary:hover { border-color: var(--amber); color: var(--white); }
+  .secondary span { color: var(--amber); }
+
+  footer {
+    text-align: center; margin-top: 22px;
+    font-size: 11.5px; color: rgba(255,255,255,.4); line-height: 1.7;
+  }
+  footer a { color: rgba(255,255,255,.55); }
+
+  @media (min-width: 480px) {
+    .duo { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<!-- pc-tracking · BLOCO 2 — GTM noscript -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNZXQPTD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="wrap">
+
+  <div class="head">
+    <div class="mk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 14l5-5 4 4 5-7" stroke="#0F1C2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="6" r="2" fill="#0F1C2E"/></svg></div>
+    <h1>Primeira Chance</h1>
+    <p>Preparando jovens de 12 a 18 anos para o primeiro emprego.</p>
+  </div>
+
+  <!-- DESTAQUE: Mega Aula -->
+  <a class="card hero-card" href="/mega-aula/" onclick="window.dataLayer && window.dataLayer.push({event:'trackEvent', eventName:'bio_click', eventLabel:'bio_mega_aula'})">
+    <span class="hero-badge">🎓 Gratuito · vagas limitadas</span>
+    <h2>Mega Aula Gratuita</h2>
+    <div class="date">Quarta, 24 de junho · 20h</div>
+    <div class="sub">Como preparar seu filho para o primeiro emprego. Garanta sua vaga gratuita.</div>
+    <div class="go">Quero participar →</div>
+  </a>
+
+  <!-- Dois cards médios -->
+  <div class="duo">
+    <a class="card tool" href="/curriculo/" onclick="window.dataLayer && window.dataLayer.push({event:'trackEvent', eventName:'bio_click', eventLabel:'bio_curriculo'})">
+      <div class="ic">📄</div>
+      <h3>Gerador de Currículo</h3>
+      <p>Monte um currículo profissional em minutos. Grátis.</p>
+    </a>
+    <a class="card tool" href="/email/" onclick="window.dataLayer && window.dataLayer.push({event:'trackEvent', eventName:'bio_click', eventLabel:'bio_email'})">
+      <div class="ic">✉️</div>
+      <h3>Gerador de E-mail de Candidatura</h3>
+      <p>O e-mail que o recrutador lê antes do currículo. Grátis.</p>
+    </a>
+  </div>
+
+  <!-- Link secundário: curso -->
+  <a class="secondary" href="/#preco" onclick="window.dataLayer && window.dataLayer.push({event:'trackEvent', eventName:'bio_click', eventLabel:'bio_curso'})">
+    Conheça o <span>curso completo</span> Primeira Chance →
+  </a>
+
+  <footer>
+    <p>cursoprimeirachance.com.br<br>
+    <a href="/politica-de-privacidade/">Política de Privacidade</a> · <a href="/termos-de-uso/">Termos de Uso</a></p>
+  </footer>
+
+</div>
+
+<!-- pc-tracking · BLOCO 3 — banner de consentimento + define window.pcTrack() -->
+<style>
+  #pc-cookie{position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:440px;margin:0 auto;
+    background:#1E3048;color:#FAFAF5;border-radius:16px;padding:18px 18px 16px;
+    box-shadow:0 18px 50px -20px rgba(0,0,0,.7);font-family:'DM Sans',system-ui,sans-serif;
+    border:1px solid rgba(255,255,255,.12);
+    transform:translateY(160%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+  #pc-cookie.show{transform:translateY(0)}
+  #pc-cookie p{font-size:13px;line-height:1.5;color:rgba(250,250,245,.82);margin:0 0 13px}
+  #pc-cookie a{color:#F5A623;text-decoration:underline}
+  #pc-cookie .row{display:flex;gap:9px}
+  #pc-cookie button{flex:1;font-family:'Space Grotesk','DM Sans',sans-serif;font-weight:700;font-size:14px;
+    padding:12px;border-radius:11px;border:none;cursor:pointer}
+  #pc-cookie .acc{background:#F5A623;color:#0F1C2E}
+  #pc-cookie .rej{background:transparent;color:#FAFAF5;border:1.5px solid rgba(250,250,245,.3)}
+  @media(prefers-reduced-motion:reduce){#pc-cookie{transition:none}}
+</style>
+<div id="pc-cookie" role="dialog" aria-label="Aviso de cookies">
+  <p>Usamos cookies para entender o uso do site e mostrar nossos conteúdos a quem se interessou.
+     Você decide. Veja a <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
+  <div class="row">
+    <button class="rej" id="pc-cookie-rej" type="button">Recusar</button>
+    <button class="acc" id="pc-cookie-acc" type="button">Aceitar</button>
+  </div>
+</div>
+<script>
+(function(){
+  "use strict";
+  var banner = document.getElementById('pc-cookie');
+  var KEY = 'pc_consent';
+  function jaEscolheu(){ try { return !!localStorage.getItem(KEY); } catch(e){ return false; } }
+  if (!jaEscolheu()) { setTimeout(function(){ banner.classList.add('show'); }, 700); }
+  function fechar(){ banner.classList.remove('show'); }
+  document.getElementById('pc-cookie-acc').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'granted'); } catch(e){}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' });
+    }
+    dataLayer.push({ event: 'pc_consent_granted' });
+    fechar();
+  });
+  document.getElementById('pc-cookie-rej').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'denied'); } catch(e){}
+    dataLayer.push({ event: 'pc_consent_denied' });
+    fechar();
+  });
+  window.pcTrack = function(evento, params){
+    try { dataLayer.push(Object.assign({ event: 'pc_' + evento }, params || {})); } catch(e){}
+  };
+})();
+</script>
+<!-- FIM pc-tracking -->
+</body>
+</html>
