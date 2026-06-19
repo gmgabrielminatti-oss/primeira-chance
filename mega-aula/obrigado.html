@@ -7,6 +7,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
+<!-- pc-tracking · Consent Mode v2 — começa NEGADO até o "Aceitar" do banner -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  try {
+    if (localStorage.getItem('pc_consent') === 'granted') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+    }
+  } catch(e) {}
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -710,5 +732,57 @@ function copiarLink() {
 }
 </script>
 
+<!-- pc-tracking · banner de consentimento + define window.pcTrack() -->
+<style>
+  #pc-cookie{position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;max-width:440px;margin:0 auto;
+    background:#1E3048;color:#FAFAF5;border-radius:16px;padding:18px 18px 16px;
+    box-shadow:0 18px 50px -20px rgba(0,0,0,.7);font-family:'DM Sans',system-ui,sans-serif;
+    border:1px solid rgba(255,255,255,.12);
+    transform:translateY(160%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+  #pc-cookie.show{transform:translateY(0)}
+  #pc-cookie p{font-size:13px;line-height:1.5;color:rgba(250,250,245,.82);margin:0 0 13px}
+  #pc-cookie a{color:#F5A623;text-decoration:underline}
+  #pc-cookie .row{display:flex;gap:9px}
+  #pc-cookie button{flex:1;font-family:'Space Grotesk','DM Sans',sans-serif;font-weight:700;font-size:14px;
+    padding:12px;border-radius:11px;border:none;cursor:pointer}
+  #pc-cookie .acc{background:#F5A623;color:#0F1C2E}
+  #pc-cookie .rej{background:transparent;color:#FAFAF5;border:1.5px solid rgba(250,250,245,.3)}
+  @media(prefers-reduced-motion:reduce){#pc-cookie{transition:none}}
+</style>
+<div id="pc-cookie" role="dialog" aria-label="Aviso de cookies">
+  <p>Usamos cookies para entender o uso do site e mostrar nossos conteúdos a quem se interessou.
+     Você decide. Veja a <a href="/politica-de-privacidade/">Política de Privacidade</a>.</p>
+  <div class="row">
+    <button class="rej" id="pc-cookie-rej" type="button">Recusar</button>
+    <button class="acc" id="pc-cookie-acc" type="button">Aceitar</button>
+  </div>
+</div>
+<script>
+(function(){
+  "use strict";
+  var banner = document.getElementById('pc-cookie');
+  var KEY = 'pc_consent';
+  function jaEscolheu(){ try { return !!localStorage.getItem(KEY); } catch(e){ return false; } }
+  if (!jaEscolheu()) { setTimeout(function(){ banner.classList.add('show'); }, 700); }
+  function fechar(){ banner.classList.remove('show'); }
+  document.getElementById('pc-cookie-acc').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'granted'); } catch(e){}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' });
+    }
+    dataLayer.push({ event: 'pc_consent_granted' });
+    fechar();
+  });
+  document.getElementById('pc-cookie-rej').addEventListener('click', function(){
+    try { localStorage.setItem(KEY, 'denied'); } catch(e){}
+    dataLayer.push({ event: 'pc_consent_denied' });
+    fechar();
+  });
+  window.pcTrack = function(evento, params){
+    try { dataLayer.push(Object.assign({ event: 'pc_' + evento }, params || {})); } catch(e){}
+  };
+})();
+</script>
+<!-- FIM pc-tracking -->
 </body>
 </html>
